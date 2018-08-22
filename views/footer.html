@@ -1,0 +1,15 @@
+<p><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Em caso de d&uacute;vidas entre em contato com <u><a href="mailto:{{grupo.email}}">conosco</a></u> pelo telefone {{grupo.telefone}}.</p>
+<div class="language-select text-center" ng-controller="LanguageselectCtrl">
+
+    <ul class="list-inline">
+        <li ng-repeat="(key, value) in localesNamesWithKeys">
+            <small>
+                <a href="" ng-click="changeLanguage(key)">
+                    <span></span> {{value}}</a>
+            </small>
+        </li>
+    </ul>
+
+    <br>
+
+</div>

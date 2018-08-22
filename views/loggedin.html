@@ -1,0 +1,62 @@
+<nav class="navbar navbar-transparent navbar-fixed-top navbar-color-on-scroll">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#menuprincipal" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#!/profile">
+                <img class="img-responsive" src="images/logo-top.0a0a756d.svg" alt="{{appTitle}}" />
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="menuprincipal">
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#!/profile">Inscrição</a>
+                </li>
+                <li>
+                    <a href="" ng-click="logout()">
+                        <span class=' glyphicon glyphicon-log-out'></span> Sair</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="page-header clear-filter purple-filter " style="position: relative; overflow: hidden;">
+    <div class="" style="background-image: url('images/cover.3b321129.jpg'); background-size: cover;
+            background-position: center top;" data-rellax-speed="-1" data-rellax-percentage="0">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-sm-offset-2">
+                    <img class="img-responsive page-header-logo" src="images/logo-campanha.3e00eb81.svg" alt="{{appTitle}}" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="main main-raised">
+        <div class="section section-basic">
+            <div class="row" style="position: relative;">
+                <div class="col-xs-12"><loading ng-if="stateIsLoading"></loading></div>
+                <div ui-view  ng-if="!stateIsLoading" class="col-xs-12 col-md-8 col-md-offset-2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<div class="footer">
+    <div class="container">
+        <div class="alert alert-primary text-center" role="alert">
+            <div ng-include="'/views/footer.html'"></div>
+        </div>
+    </div>
+</div>
