@@ -168,6 +168,7 @@
     "Irá levar acompanhante": "Irá levar acompanhante",
     "Grau de parentesco com o titular": "Grau de parentesco com o titular",
     "Comercial": "Comercial",
-    "Residencial": "Residencial"
+    "Residencial": "Residencial",
+    "Em caso de dúvidas entre em contato com <u><a href='mailto:{{email}}'>conosco</a></u> pelo telefone {{telefone}}": "Em caso de dúvidas entre em contato <u><a href='mailto:{{email}}'>conosco</a></u> pelo telefone {{telefone}}"
 
 }
