@@ -5,8 +5,8 @@
 
     <p translate>{{usuario.Nome}} seja bem-vindo(a)!</p>
     <p translate>Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até {{grupo.deadlineInscricao}}.</p>
-<!--   -->
-    <fieldset ng-disabled="(usuario.Status === '1') || (usuario.Status === 1) || (usuario.Status === '-4') || (usuario.Status === -4)">
+<!-- ng-disabled="(usuario.Status === '1') || (usuario.Status === 1) || (usuario.Status === '-4') || (usuario.Status === -4) || (usuario.Status === '-2') || (usuario.Status === -2)"  -->
+    <fieldset >
 
         <h3>
             <span translate>Titular</span>
@@ -97,7 +97,7 @@
 
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoComplemento.$invalid}">
             <label class="" for="EnderecoComplemento">
-                <span translate>Complemento</span> *</label>
+                <span translate>Complemento</span></label>
             <input type="text" name="EnderecoComplemento" id="EnderecoComplemento" class="form-control" ng-model="usuario.Endereco.Complemento">
             <span class="material-icons form-control-feedback">clear</span>
         </div>
@@ -156,7 +156,7 @@
         <div class="form-group " ng-class="{'has-error': userForm.Cpf.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
             <label class="" for="Cpf">
                 <span translate>CPF</span> *</label>
-            <input type="text" name="Cpf" id="Cpf" class="form-control" ng-model="usuario.Cpf" max="11" required>
+            <input type="text" name="Cpf" id="Cpf" class="form-control" ng-model="usuario.Cpf" maxlength="11" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -238,10 +238,10 @@
                 <span translate>Fumante</span>? *</label>
             <select class="form-control" id="Fumante" ng-model="usuario.Fumante" required>
                 <option ng-value="false">
-                    <span translate>Não</span>
+                    {{'Não' | translate}}
                 </option>
                 <option ng-value="true">
-                    <span translate>Sim</span>
+                    {{'Sim' | translate}}
                 </option>
             </select>
             <span class="material-icons form-control-feedback">clear</span>
@@ -252,10 +252,10 @@
                 <span translate>Portador de necessidades especiais</span>? *</label>
             <select class="form-control" id="Pne" ng-model="usuario.Pne" required>
                 <option ng-value="false">
-                    <span translate>Não</span>
+                    {{'Não' | translate}}
                 </option>
                 <option ng-value="true">
-                    <span translate>Sim</span>
+                    {{'Sim' | translate}}
                 </option>
             </select>
             <span class="material-icons form-control-feedback">clear</span>
@@ -285,7 +285,7 @@
 
         <div class="form-group" ng-class="{'has-error': userForm.ContatoEmergenciaNome.$invalid}">
             <label for="ContatoEmergenciaNome">
-                <span translate>Nome do contato de emergência</span>
+                <span translate>Nome do contato de emergência</span> *
             </label>
             <input type="text" name="ContatoEmergenciaNome" id="ContatoEmergenciaNome" class="form-control" ng-model="usuario.ContatoEmergencia.Nome" maxlength="50" required>
             <span class="material-icons form-control-feedback">clear</span>
@@ -293,7 +293,7 @@
 
         <div class="form-group" ng-class="{'has-error': userForm.ContatoEmergenciaTelefone.$invalid}">
             <label for="ContatoEmergenciaTelefone" >
-                <span translate>Telefone do contato de emergência</span>
+                <span translate>Telefone do contato de emergência</span> *
             </label>
             <input type="tel" name="ContatoEmergenciaTelefone" id="ContatoEmergenciaTelefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone" maxlength="20"  mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
@@ -301,12 +301,11 @@
 
         <div class="form-group" ng-class="{'has-error': userForm.ContatoEmergencia.$invalid}">
             <label for="ContatoEmergencia">
-                <span translate>Celular do contato de emergência</span>
+                <span translate>Celular do contato de emergência</span> *
             </label>
             <input type="tel" name="ContatoEmergencia" id="ContatoEmergencia" class="form-control" ng-model="usuario.ContatoEmergencia.Celular" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
-
 
         <h3>
             <span translate>Acompanhante</span>
@@ -475,7 +474,7 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteCpf.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
                 <label class="" for="acompanhanteCpf">
                     <span translate>CPF</span> *</label>
-                <input type="text" id="acompanhanteCpf" id="acompanhanteCpf" class="form-control" ng-model="acompanhante.Cpf" max="11" required>
+                <input type="text" id="acompanhanteCpf" id="acompanhanteCpf" class="form-control" ng-model="acompanhante.Cpf" maxlength="11" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -545,7 +544,7 @@
 
             <div class="form-group" ng-class="{'has-error': userForm.acompanhanteNacionalidadeEstadoCivil.$invalid}">
                 <label for="acompanhanteNacionalidadeEstadoCivil">
-                    <span translate>Estado civil</span>
+                    <span translate>Estado civil</span> *
                 </label>
                 <input type="text" name="acompanhanteNacionalidadeEstadoCivil" id="acompanhanteNacionalidadeEstadoCivil" class="form-control" ng-model="acompanhante.Nacionalidade.EstadoCivil" maxlength="50" required>
                 <span class="material-icons form-control-feedback">clear</span>
@@ -556,10 +555,10 @@
                     <span translate>Fumante</span> *</label>
                 <select class="form-control" name="acompanhanteFumante" id="acompanhanteFumante" ng-model="acompanhante.Fumante" required>
                     <option ng-value="false">
-                        <span translate>Não</span>
+                        {{'Não' | translate}}
                     </option>
                     <option ng-value="true">
-                        <span translate>Sim</span>
+                        {{'Sim' | translate}}
                     </option>
                 </select>
                 <span class="material-icons form-control-feedback">clear</span>
@@ -570,10 +569,10 @@
                     <span translate>Portador de necessidades especiais</span>? *</label>
                 <select class="form-control" id="acompanhantePne" ng-model="acompanhante.Pne" required>
                     <option ng-value="false">
-                        <span translate>Não</span>
+                        {{'Não' | translate}}
                     </option>
                     <option ng-value="true">
-                        <span translate>Sim</span>
+                        {{'Sim' | translate}}
                     </option>
                 </select>
                 <span class="material-icons form-control-feedback">clear</span>
@@ -603,7 +602,7 @@
 
             <div class="form-group"  ng-class="{'has-error': userForm.acompanhanteContatoEmergenciaNome.$invalid}">
                 <label for="acompanhanteContatoEmergenciaNome">
-                    <span translate>Nome do contato de emergência</span>
+                    <span translate>Nome do contato de emergência</span> *
                 </label>
                 <input type="text" name="acompanhanteContatoEmergenciaNome" id="acompanhanteContatoEmergenciaNome" class="form-control"
                     ng-model="acompanhante.ContatoEmergencia.Nome" maxlength="50" required>
@@ -613,7 +612,7 @@
 
             <div class="form-group" ng-class="{'has-error': (userForm.acompanhanteContatoEmergenciaTelefone.$invalid && userForm.acompanhanteContatoEmergenciaTelefone.$error)}">
                 <label for="acompanhanteContatoEmergenciaTelefone">
-                    <span translate>Telefone do contato de emergência</span>
+                    <span translate>Telefone do contato de emergência</span> *
                 </label>
                 <input type="tel" name="acompanhanteContatoEmergenciaTelefone" id="acompanhanteContatoEmergenciaTelefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
                 

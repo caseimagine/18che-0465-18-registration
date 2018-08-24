@@ -1,5 +1,9 @@
 <h3 translate>Upload de arquivos</h3>
 
+<p translate>Após selecionar seus arquivos você deve definir de qual usuário é o arquivo referente selecionado (titular ou acompanhante) para seguirmos com o envio dos dados para inscrição</p>
+
+<br>
+
 <div ng-show="uploader.isHTML5">
 
 
@@ -30,6 +34,8 @@
         <tr>
             <th width="50%">{{'Nome' | translate}}</th>
             <!-- <th>Tipo</th> -->
+
+            <th>Referente</th>
             <th ng-show="uploader.isHTML5">{{'Tamanho' | translate}}</th>
             <th ng-show="uploader.isHTML5">%</th>
             <th>Status</th>
@@ -39,27 +45,44 @@
     <tbody>
         <tr ng-repeat="item in uploader.queue">
             <td>
-                <strong>{{ item.file.name }}</strong>
+                <div class="form-group">
+                    <strong>{{ item.file.name }}</strong>
+                </div>
+
             </td>
             <!-- <td>
                 <select ng-model="item.tipoArquivo" ng-options="tipo.id as tipo.name for tipo in tiposArquivo"></select>
             </td> -->
-            <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-            <td ng-show="uploader.isHTML5">
-                <div class="progress" style="margin-bottom: 0;">
-                    <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+            <td>
+                <div class="form-group">
+                    <select class="form-control" ng-model="item.insertAcompId" ng-options="referencia.insertAcompId as referencia.name for referencia in referenciaArquivo"
+                        ng-change="alterandoReferenciaArquivo(item)"></select>
                 </div>
             </td>
+            <td ng-show="uploader.isHTML5" nowrap>
+                <div class="form-group">{{ item.file.size/1024/1024|number:2 }} MB</div>
+            </td>
+            <td ng-show="uploader.isHTML5">
+                <div class="form-group">
+                    <div class="progress" style="margin-bottom: 0;">
+                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+                    </div>
+                </div>
+
+            </td>
             <td class="text-center">
-                <span ng-show="item.isSuccess">
-                    <i class="glyphicon glyphicon-ok"></i>
-                </span>
-                <span ng-show="item.isCancel">
-                    <i class="glyphicon glyphicon-ban-circle"></i>
-                </span>
-                <span ng-show="item.isError">
-                    <i class="glyphicon glyphicon-remove"></i>
-                </span>
+                <div class="form-group">
+                    <span ng-show="item.isSuccess">
+                        <i class="glyphicon glyphicon-ok"></i>
+                    </span>
+                    <span ng-show="item.isCancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                    </span>
+                    <span ng-show="item.isError">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </span>                    
+                </div>
+
             </td>
             <!-- <td nowrap>
                 <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
@@ -76,7 +99,7 @@
     </tbody>
 </table>
 
-<div  ng-show="uploader.queue.length > 0">
+<div ng-show="uploader.queue.length > 0">
     <div>
         <p>Progresso geral</p>
         <div class="progress" style="">
@@ -86,7 +109,7 @@
     <button type="button" class="btn btn-primary btn-s" ng-click="submitForm()" ng-if="allUploadsComplete">
         <span class="glyphicon glyphicon-ok"></span> Finalizar cadastro
     </button>
-    <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()"  ng-if="!allUploadsComplete" ng-disabled="!uploader.getNotUploadedItems().length">
+    <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-if="!allUploadsComplete" ng-disabled="!checaSeTemSasToken(uploader.queue) ">
         <span class="glyphicon glyphicon-upload"></span> Upload
     </button>
     <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-if="!allUploadsComplete" ng-disabled="!uploader.isUploading">
