@@ -5,8 +5,8 @@
 
     <p translate>{{usuario.Nome}} seja bem-vindo(a)!</p>
     <p translate>Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até {{grupo.deadlineInscricao}}.</p>
-<!--  ng-disabled="(usuario.Status === '1') || (usuario.Status === 1) || (usuario.Status === '-4') || (usuario.Status === -4)" -->
-    <fieldset>
+<!--   -->
+    <fieldset ng-disabled="(usuario.Status === '1') || (usuario.Status === 1) || (usuario.Status === '-4') || (usuario.Status === -4)">
 
         <h3>
             <span translate>Titular</span>
@@ -69,14 +69,14 @@
         <div class="form-group " ng-class="{'has-error': userForm.Telefone.$invalid}">
             <label class="" for="Telefone">
                 <span translate>Telefone</span> *</label>
-            <input type="tel" name="Telefone" id="Telefone" class="form-control" ng-model="usuario.Telefone" maxlength="20" mask="+9999999999" restrict="reject" required>
+            <input type="tel" name="Telefone" id="Telefone" class="form-control" ng-model="usuario.Telefone" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
         <div class="form-group " ng-class="{'has-error': userForm.Celular.$invalid}">
             <label class="" for="Celular">
                 <span translate>Celular</span>
             </label>
-            <input type="tel" name="Celular" id="Celular" class="form-control" ng-model="usuario.Celular" mask="+9999999999" restrict="reject" required>
+            <input type="tel" name="Celular" id="Celular" class="form-control" ng-model="usuario.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -229,6 +229,8 @@
             <label for="AcompNacionalidadeEstadoCivil">
                 <span translate>Estado civil</span> *</label>
             <input type="text" name="AcompNacionalidadeEstadoCivil" id="AcompNacionalidadeEstadoCivil" class="form-control" ng-model="usuario.Nacionalidade.EstadoCivil" maxlength="50" required>
+            
+            <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.Fumante.$invalid}">
@@ -281,25 +283,28 @@
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': userForm.AcompContatoEmergencia_Nome.$invalid}">
-            <label for="AcompContatoEmergencia_Nome">
+        <div class="form-group" ng-class="{'has-error': userForm.ContatoEmergenciaNome.$invalid}">
+            <label for="ContatoEmergenciaNome">
                 <span translate>Nome do contato de emergência</span>
             </label>
-            <input type="text" name="AcompContatoEmergencia_Nome" id="AcompContatoEmergencia_Nome" class="form-control" ng-model="usuario.ContatoEmergencia.Nome" maxlength="50" required>
+            <input type="text" name="ContatoEmergenciaNome" id="ContatoEmergenciaNome" class="form-control" ng-model="usuario.ContatoEmergencia.Nome" maxlength="50" required>
+            <span class="material-icons form-control-feedback">clear</span>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': userForm.AcompContatoEmergencia_Telefone.$invalid}">
-            <label for="AcompContatoEmergencia_Telefone" >
+        <div class="form-group" ng-class="{'has-error': userForm.ContatoEmergenciaTelefone.$invalid}">
+            <label for="ContatoEmergenciaTelefone" >
                 <span translate>Telefone do contato de emergência</span>
             </label>
-            <input type="tel" name="AcompContatoEmergencia_Telefone" id="AcompContatoEmergencia_Telefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone" maxlength="20"  mask="+9999999999" restrict="reject" required>
+            <input type="tel" name="ContatoEmergenciaTelefone" id="ContatoEmergenciaTelefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone" maxlength="20"  mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
+            <span class="material-icons form-control-feedback">clear</span>
         </div>
 
-        <div class="form-group" ng-class="{'has-error': userForm.AcompContatoEmergenciaCelular.$invalid}">
-            <label for="AcompContatoEmergenciaCelular">
+        <div class="form-group" ng-class="{'has-error': userForm.ContatoEmergencia.$invalid}">
+            <label for="ContatoEmergencia">
                 <span translate>Celular do contato de emergência</span>
             </label>
-            <input type="tel" name="AcompContatoEmergenciaCelular" id="AcompContatoEmergenciaCelular" class="form-control" ng-model="usuario.ContatoEmergencia.Celular" maxlength="20" mask="+9999999999" restrict="reject" required>
+            <input type="tel" name="ContatoEmergencia" id="ContatoEmergencia" class="form-control" ng-model="usuario.ContatoEmergencia.Celular" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
+            <span class="material-icons form-control-feedback">clear</span>
         </div>
 
 
@@ -322,11 +327,11 @@
                     <span translate>Hospedagem: quarto com 1 cama ou 2 camas</span>? *</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="camas" ng-model="titular.PerfilViajante" value="1 cama" required>{{'1 cama' | translate}}</label>
+                        <input type="radio" name="camas" ng-model="usuario.PerfilViajante" value="1 cama" required>{{'1 cama' | translate}}</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="camas" ng-model="titular.PerfilViajante" value="2 camas" required>{{'2 camas' | translate}}</label>
+                        <input type="radio" name="camas" ng-model="usuario.PerfilViajante" value="2 camas" required>{{'2 camas' | translate}}</label>
                 </div>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -339,16 +344,16 @@
             </div>
 
 
-            <div class="form-group" ng-class="{'has-error': userForm.nome.$invalid}">
+            <div class="form-group" ng-class="{'has-error': userForm.acompanhantenome.$invalid}">
                 <label class="" for="acompanhantenome">
                     <span translate>Nome completo (conforme documento de embarque)</span> *</label>
-                <input type="text" id="acompanhantenome" class="form-control" ng-model="acompanhante.Nome" data-ng-maxlength="50" required>
+                <input type="text" id="acompanhantenome" name="acompanhantenome" class="form-control" ng-model="acompanhante.Nome" data-ng-maxlength="50" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
-            <div class="form-group" ng-class="{'has-error': userForm.acompanhanteSobrenome.$invalid}" ng-if="currentLocaleDisplayName === 'es-ES'">
+            <div class="form-group" ng-if="currentLocaleDisplayName === 'es-ES'" ng-class="{'has-error': userForm.acompanhanteSobrenome.$invalid}" >
                 <label class="" for="acompanhanteSobrenome">Appelido (según en el pasaporte) *</label>
-                <input type="text" name="acompanhanteSobrenome" id="acompanhanteSobrenome" class="form-control" ng-model="acompanhante.Sobrenome" data-ng-maxlength="100" required>
+                <input type="text" name="acompanhanteSobrenome" id="acompanhanteSobrenome" class="form-control" ng-model="acompanhante.Sobrenome" data-ng-maxlength="100"  restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -384,13 +389,13 @@
                 <label class="" for="acompanhanteTelefone">
                     <span translate>Telefone</span> *</label>
                 <input type="tel" id="acompanhanteTelefone" name="acompanhanteTelefone" class="form-control" ng-model="acompanhante.Telefone"
-                    maxlength="20" mask="+9999999999" restrict="reject" required>
+                    maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteCelular.$invalid}">
                 <label class="" for="acompanhanteCelular">
                     <span translate></span>Celular</label>
-                <input type="tel" id="acompanhanteCelular" name="acompanhanteCelular" class="form-control" ng-model="acompanhante.Celular" mask="+9999999999" restrict="reject" required>
+                <input type="tel" id="acompanhanteCelular" name="acompanhanteCelular" class="form-control" ng-model="acompanhante.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -457,11 +462,11 @@
                     <span translate>Tipo de endereço</span> *</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="0" required> {{'Comercial' | translate}}</label>
+                        <input type="radio" name="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="0" required> {{'Comercial' | translate}}</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" id="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="1" required> {{'Residencial' | translate}}</label>
+                        <input type="radio" name="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="1" required> {{'Residencial' | translate}}</label>
 
                 </div>
                 <span class="material-icons form-control-feedback">clear</span>
@@ -592,40 +597,46 @@
                 <label class="" for="acompanhanteInformacoesMedicas">
                     <span translate>Informações médicas (em caso de gravidez indique aqui)</span>
                 </label>
-                <input type="text" name="acompanhanteInformacoesMedicas" id="acompanhanteInformacoesMedicas" class="form-control" ng-model="acompanhante.InformacoesMedicas" required>
+                <input type="text" name="acompanhanteInformacoesMedicas" id="acompanhanteInformacoesMedicas" class="form-control" ng-model="acompanhante.InformacoesMedicas">
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
-            <div class="form-group">
-                <label for="acompanhanteContatoEmergencia_Nome">
+            <div class="form-group"  ng-class="{'has-error': userForm.acompanhanteContatoEmergenciaNome.$invalid}">
+                <label for="acompanhanteContatoEmergenciaNome">
                     <span translate>Nome do contato de emergência</span>
                 </label>
-                <input type="text" name="acompanhanteContatoEmergencia_Nome" id="acompanhanteContatoEmergencia_Nome" class="form-control"
+                <input type="text" name="acompanhanteContatoEmergenciaNome" id="acompanhanteContatoEmergenciaNome" class="form-control"
                     ng-model="acompanhante.ContatoEmergencia.Nome" maxlength="50" required>
+                    
+                <span class="material-icons form-control-feedback">clear</span>
             </div>
 
-            <div class="form-group">
-                <label for="acompanhanteContatoEmergencia_Telefone">
+            <div class="form-group" ng-class="{'has-error': (userForm.acompanhanteContatoEmergenciaTelefone.$invalid && userForm.acompanhanteContatoEmergenciaTelefone.$error)}">
+                <label for="acompanhanteContatoEmergenciaTelefone">
                     <span translate>Telefone do contato de emergência</span>
                 </label>
-                <input type="tel" name="acompanhanteContatoEmergencia_Telefone" id="acompanhanteContatoEmergencia_Telefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone" maxlength="20" mask="+9999999999" restrict="reject" required>
+                <input type="tel" name="acompanhanteContatoEmergenciaTelefone" id="acompanhanteContatoEmergenciaTelefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
+                
+                <span class="material-icons form-control-feedback">clear</span>
             </div>
 
-            <div class="form-group">
-                <label for="acompanhanteContatoEmergencia_Celular">
+            <div class="form-group" ng-class="{'has-error': (userForm.acompanhanteContatoEmergenciaCelular.$invalid && userForm.acompanhanteContatoEmergenciaCelular.$error)}">
+                <label for="acompanhanteContatoEmergenciaCelular">
                     <span translate>Celular do contato de emergência</span> *
                 </label>
-                <input type="tel" name="acompanhanteContatoEmergencia_Celular" id="acompanhanteContatoEmergencia_Celular" class="form-control"
-                    ng-model="acompanhante.ContatoEmergencia.Celular" maxlength="20" mask="+9999999999" restrict="reject"  required>
+                <input type="tel" name="acompanhanteContatoEmergenciaCelular" id="acompanhanteContatoEmergenciaCelular" class="form-control"
+                    ng-model="acompanhante.ContatoEmergencia.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
+                    
+                <span class="material-icons form-control-feedback">clear</span>
             </div>
         </div>
 
         <!-- SUBMIT BUTTON -->
 
-        <button type="submit" class="btn btn-primary" ng-disabled="submitting && !userForm.$invalid" ng-show="(usuario.Status === 0) || (usuario.Status === '0')">
-            <span translate></span>Enviar</button>
+        <button type="submit" class="btn btn-primary" ng-disabled="submitting && !userForm.$invalid" ng-show="(usuario.Status === 0) || (usuario.Status === '0')"><span translate></span>Enviar</button>
 
     </fieldset>
 
 </form>
 <br>
+
