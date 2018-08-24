@@ -171,7 +171,12 @@
     "Comercial": "Comercial",
     "Residencial": "Residencial",
     
-    "Em caso de dúvidas entre em contato com <u><a href='mailto:{{email}}'>conosco</a></u> pelo telefone {{telefone}}": "En caso de duda contacte <u><a href='mailto:{{email}}'>con nosotros</a></u> por teléfono {{telefone}}"
+    "Em caso de dúvidas entre em contato com": "En caso de duda contacte <u><a href='mailto:{{footeremail}}'>con nosotros</a></u> por teléfono {{footertelefone}}",
+    "Insira seu e-mail": "Introduce tu e-mail",
+    "Coloque um e-mail válido": "E-mail inválido",
+    "Hospedagem: quarto com 1 cama ou 2 camas": "Habitación: con 1 cama o 2 camas",
+    "1 cama": "1 cama",
+    "2 camas": "2 camas"
 
 
 }

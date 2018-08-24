@@ -16,28 +16,46 @@
                     <br />
                     <h4>Login</h4>
                   </div>
+                  <div class="language-select text-center" ng-controller="LanguageselectCtrl">
+
+                      <ul class="list-inline" style="margin-bottom: 0;">
+                        <li>
+                          <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        </li>
+                        <li ng-repeat="(key, value) in localesNamesWithKeys">
+                          <small>
+                            <a href="" ng-click="changeLanguage(key)" ng-class="key === currentLocaleDisplayName ? 'text-underline' : ''">
+                              <span></span> {{value}}</a>
+                          </small>
+                        </li>
+                      </ul>
+
+                    </div>
                   <div class="content">
                     <div class="input-group">
                       <span class="input-group-addon">
                         <i class="material-icons">email</i>
                       </span>
-                      <input type="email" name="email" class="form-control" ng-model="email" placeholder="Insira seu e-mail">
-                      <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Coloque um e-mail válido</p>
+                      <input type="email" name="email" class="form-control" ng-model="email" placeholder="{{ 'Insira seu e-mail' | translate }}">
+                      <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">{{'Coloque um e-mail válido' | translate}}</p>
                     </div>
 
                     <div class="input-group" ng-show="loginPorSenha">
                       <span class="input-group-addon">
                         <i class="material-icons">lock_outline</i>
                       </span>
-                      <input type="password" name="password" class="form-control" ng-model="password" placeholder="Digite sua senha">
+                      <input type="password" name="password" class="form-control" ng-model="password" placeholder="{{'Digite sua senha' | translate}}">
                     </div>
                   </div>
 
                   <div class="footer text-center">
                     <div class="row">
                       <div class="col-xs-12">
-                        <button type="submit" href="#" class="btn btn-primary" ng-disabled="userForm.$invalid"><i class="material-icons fa-spin" ng-if="stateIsLoading">autorenew</i> Login</button>
-                        <div class="alert alert-danger" ng-show="hasError" ><span style="text-transform: capitalize">{{errorMsg}}</span></div>
+                        <button type="submit" href="#" class="btn btn-primary" ng-disabled="userForm.email.$invalid || !userForm.email.$viewValue">
+                          <i class="material-icons fa-spin" ng-if="stateIsLoading">autorenew</i> Login</button>
+                        <div class="alert alert-danger" ng-show="hasError">
+                          <span style="text-transform: capitalize">{{errorMsg}}</span>
+                        </div>
                         <a href="#" ng-show="loginPorSenha">
                           <small>Esqueci minha senha</small>
                         </a>
@@ -47,6 +65,7 @@
                       </div>
                       <div class="col-xs-10 col-xs-offset-1">
                         <div ng-include="'/views/footer.html'"></div>
+                        <br>
                       </div>
                     </div>
 

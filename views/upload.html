@@ -1,4 +1,4 @@
-<h3>Upload de arquivos</h3>
+<h3 translate>Upload de arquivos</h3>
 
 <div ng-show="uploader.isHTML5">
 
@@ -6,7 +6,7 @@
     <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
     <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
         <div nv-file-over="" uploader="uploader" over-class="nv-file-over" class="well my-drop-zone text-center">
-            Selecione/arraste seus arquivos aqui
+            {{'Selecione/arraste seus arquivos aqui' | translate}}
         </div>
     </div>
 </div>
@@ -17,7 +17,7 @@
     ou
     <br>
     <span class="btn btn-default btn-file text-center">
-        Selecione seus arquivos
+        {{'Selecione seus arquivos' | translate}}
         <input type="file" nv-file-select="" uploader="uploader" multiple />
     </span>
 </p>
@@ -28,9 +28,9 @@
 <table class="table" ng-show="uploader.queue.length > 0">
     <thead>
         <tr>
-            <th width="50%">Nome</th>
-            <th>Tipo</th>
-            <th ng-show="uploader.isHTML5">Tamanho</th>
+            <th width="50%">{{'Nome' | translate}}</th>
+            <!-- <th>Tipo</th> -->
+            <th ng-show="uploader.isHTML5">{{'Tamanho' | translate}}</th>
             <th ng-show="uploader.isHTML5">%</th>
             <th>Status</th>
             <!-- <th>Ações</th> -->
@@ -41,9 +41,9 @@
             <td>
                 <strong>{{ item.file.name }}</strong>
             </td>
-            <td>
+            <!-- <td>
                 <select ng-model="item.tipoArquivo" ng-options="tipo.id as tipo.name for tipo in tiposArquivo"></select>
-            </td>
+            </td> -->
             <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
             <td ng-show="uploader.isHTML5">
                 <div class="progress" style="margin-bottom: 0;">

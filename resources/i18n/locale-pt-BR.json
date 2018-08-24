@@ -169,6 +169,11 @@
     "Grau de parentesco com o titular": "Grau de parentesco com o titular",
     "Comercial": "Comercial",
     "Residencial": "Residencial",
-    "Em caso de dúvidas entre em contato com <u><a href='mailto:{{email}}'>conosco</a></u> pelo telefone {{telefone}}": "Em caso de dúvidas entre em contato <u><a href='mailto:{{email}}'>conosco</a></u> pelo telefone {{telefone}}"
+    "Em caso de dúvidas entre em contato com": "Em caso de dúvidas entre em contato <u><a href='mailto:{{footeremail}}'>conosco</a></u> pelo telefone {{footertelefone}}",
+    "Insira seu e-mail": "Insira seu e-mail",
+    "Coloque um e-mail válido": "Coloque um e-mail válido",
+    "Hospedagem: quarto com 1 cama ou 2 camas": "Hospedagem: quarto com 1 cama ou 2 camas",
+    "1 cama": "1 cama",
+    "2 camas": "2 camas"
 
 }
