@@ -32,10 +32,10 @@
 <table class="table" ng-show="uploader.queue.length > 0">
     <thead>
         <tr>
-            <th width="50%">{{'Nome' | translate}}</th>
+            <th width="50%">{{'Nome do Arquivo' | translate}}</th>
             <!-- <th>Tipo</th> -->
 
-            <th>Referente</th>
+            <th  ng-if="usuario.Wave > 0">Referente ao</th>
             <th ng-show="uploader.isHTML5">{{'Tamanho' | translate}}</th>
             <th ng-show="uploader.isHTML5">%</th>
             <th>Status</th>
@@ -53,7 +53,7 @@
             <!-- <td>
                 <select ng-model="item.tipoArquivo" ng-options="tipo.id as tipo.name for tipo in tiposArquivo"></select>
             </td> -->
-            <td>
+            <td ng-if="usuario.Wave > 0">
                 <div class="form-group">
                     <select class="form-control" ng-model="item.insertAcompId" ng-options="referencia.insertAcompId as referencia.name for referencia in referenciaArquivo"
                         ng-change="alterandoReferenciaArquivo(item)"></select>
@@ -106,6 +106,9 @@
             <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
         </div>
     </div>
+    <div class="alert alert-danger"  ng-if="!checaSeTemSasToken(uploader.queue) && (usuario.Wave > 0) ">
+        <strong>{{'Atenção' | translate}}!</strong> {{'Você deve definir individualmente a referência de cada arquivo' | translate}}.
+      </div>
     <button type="button" class="btn btn-primary btn-s" ng-click="submitForm()" ng-if="allUploadsComplete">
         <span class="glyphicon glyphicon-ok"></span> Finalizar cadastro
     </button>
