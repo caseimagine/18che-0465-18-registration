@@ -1,6 +1,7 @@
 <h3 translate>Upload de arquivos</h3>
 
-<p translate>Após selecionar seus arquivos você deve definir de qual usuário é o arquivo referente selecionado (titular ou acompanhante) para seguirmos com o envio dos dados para inscrição</p>
+<p translate>Após selecionar seus arquivos você deve definir de qual usuário é o arquivo referente selecionado (titular ou acompanhante)
+    para seguirmos com o envio dos dados para inscrição</p>
 
 <br>
 
@@ -26,78 +27,43 @@
     </span>
 </p>
 
-
 <br>
 
-<table class="table" ng-show="uploader.queue.length > 0">
-    <thead>
-        <tr>
-            <th width="50%">{{'Nome do Arquivo' | translate}}</th>
-            <!-- <th>Tipo</th> -->
-
-            <th  ng-if="usuario.Wave > 0">Referente ao</th>
-            <th ng-show="uploader.isHTML5">{{'Tamanho' | translate}}</th>
-            <th ng-show="uploader.isHTML5">%</th>
-            <th>Status</th>
-            <!-- <th>Ações</th> -->
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="item in uploader.queue">
-            <td>
-                <div class="form-group">
-                    <strong>{{ item.file.name }}</strong>
-                </div>
-
-            </td>
+<form name="uploadForm" class="row" ng-show="uploader.queue.length > 0">
+    <div class="col-xs-12 col-sm-4" ng-repeat="item in uploader.queue">
+        <div class="thumbnail">
+            <p style="overflow: hidden;  white-space: nowrap; text-overflow: ellipsis;">
+                <strong>
+                    <span class="" ng-show="item.isSuccess">
+                        <i class="glyphicon glyphicon-ok"></i>
+                    </span>
+                    <span class="" ng-show="item.isCancel">
+                        <i class="glyphicon glyphicon-ban-circle"></i>
+                    </span>
+                    <span class="" ng-show="item.isError">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </span>
+                    {{ item.file.name }}
+                </strong>
+                <br>
+                <small class="text-muted">{{'Tamanho' | translate}}: {{ item.file.size/1024/1024|number:2 }} MB</small>
+            </p>
             <!-- <td>
                 <select ng-model="item.tipoArquivo" ng-options="tipo.id as tipo.name for tipo in tiposArquivo"></select>
             </td> -->
-            <td ng-if="usuario.Wave > 0">
-                <div class="form-group">
-                    <select class="form-control" ng-model="item.insertAcompId" ng-options="referencia.insertAcompId as referencia.name for referencia in referenciaArquivo"
-                        ng-change="alterandoReferenciaArquivo(item)"></select>
-                </div>
-            </td>
-            <td ng-show="uploader.isHTML5" nowrap>
-                <div class="form-group">{{ item.file.size/1024/1024|number:2 }} MB</div>
-            </td>
-            <td ng-show="uploader.isHTML5">
-                <div class="form-group">
-                    <div class="progress" style="margin-bottom: 0;">
-                        <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
-                    </div>
-                </div>
+            <div class="form-group" ng-if="usuario.Wave > 0" ng-class="{'has-error': uploadForm.atribuicao.$invalid}">
+                <label for="atribuicao">{{'Este arquivo é atribuido à quem?' | translate}} *</label>
+                <select class="form-control" name="atribuicao" id="atribuicao" ng-model="item.insertAcompId" ng-options="referencia.insertAcompId as referencia.name for referencia in referenciaArquivo"
+                    ng-change="alterandoReferenciaArquivo(item)" required restrict="reject"></select>
 
-            </td>
-            <td class="text-center">
-                <div class="form-group">
-                    <span ng-show="item.isSuccess">
-                        <i class="glyphicon glyphicon-ok"></i>
-                    </span>
-                    <span ng-show="item.isCancel">
-                        <i class="glyphicon glyphicon-ban-circle"></i>
-                    </span>
-                    <span ng-show="item.isError">
-                        <i class="glyphicon glyphicon-remove"></i>
-                    </span>                    
-                </div>
-
-            </td>
-            <!-- <td nowrap>
-                <button type="button" class="btn btn-success btn-xs" ng-click="item.upload()" ng-disabled="item.isReady || item.isUploading || item.isSuccess">
-                    <span class="glyphicon glyphicon-upload"></span> Upload
-                </button>
-                <button type="button" class="btn btn-warning btn-xs" ng-click="item.cancel()" ng-disabled="!item.isUploading">
-                    <span class="glyphicon glyphicon-ban-circle"></span> Cancelar
-                </button>
-                <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
-                    <span class="glyphicon glyphicon-trash"></span>
-                </button>
-            </td> -->
-        </tr>
-    </tbody>
-</table>
+                <span class="material-icons form-control-feedback">clear</span>
+            </div>
+            <div class="progress" style="margin-bottom: 0;" ng-if="item.progress">
+                <div class="progress-bar" role="progressbar" ng-style="{ 'width': item.progress + '%' }"></div>
+            </div>
+        </div>
+    </div>
+</form>
 
 <div ng-show="uploader.queue.length > 0">
     <div>
@@ -106,9 +72,9 @@
             <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
         </div>
     </div>
-    <div class="alert alert-danger"  ng-if="!checaSeTemSasToken(uploader.queue) && (usuario.Wave > 0) ">
+    <div class="alert alert-danger" ng-if="!checaSeTemSasToken(uploader.queue) && (usuario.Wave > 0) " ng-hide="">
         <strong>{{'Atenção' | translate}}!</strong> {{'Você deve definir individualmente a referência de cada arquivo' | translate}}.
-      </div>
+    </div>
     <button type="button" class="btn btn-primary btn-s" ng-click="submitForm()" ng-if="allUploadsComplete">
         <span class="glyphicon glyphicon-ok"></span> Finalizar cadastro
     </button>
