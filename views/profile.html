@@ -3,8 +3,8 @@
 <form name="userForm" ng-submit="submitForm(userForm.$valid, usuario, acompanhante)">
     <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
 
-    <p translate>{{usuario.Nome}} seja bem-vindo(a)!</p>
-    <p translate>Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até {{grupo.deadlineInscricao}}.</p>
+    <p>{{usuario.Nome}} <span translate>seja bem-vindo(a)!</span></p>
+    <p><span translate>Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até</span> {{grupo.deadlineInscricao}}.</p>
 <!--  -->
     <fieldset ng-disabled="disableFields()" >
 
@@ -57,44 +57,44 @@
                 <span translate>Tamanho de camiseta</span> *</label>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="PP"  required>PP
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="PP"  required>{{'Tamanhos.PP' | translate}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="P"  required>P
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="P"  required>{{'Tamanhos.P' | translate}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="M"  required>M
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="M"  required>{{'Tamanhos.M' | translate}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="G"  required>G
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="G"  required>{{'Tamanhos.G' | translate}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="GG"  required>GG
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="GG"  required>{{'Tamanhos.GG' | translate}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="XG"  required>XG
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="XG"  required>{{'Tamanhos.XG' | translate}}
                 </label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="XGG"  required>XGG
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="XGG"  required>{{'Tamanhos.XGG' | translate}}
                 </label>
             </div>
-            <div class="radio">
+            <!-- <div class="radio">
                 <label>
-                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="2XG"  required>2XGG
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="2XG"  required>{{'Tamanhos.2XG' | translate}}
                 </label>
-            </div>
+            </div> -->
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -115,7 +115,7 @@
         <div class="form-group " ng-class="{'has-error': userForm.Telefone.$error}">
             <label class="" for="Telefone">
                 <span translate>Telefone</span> *</label>
-            <input type="tel" name="Telefone" id="Telefone" class="form-control" ng-model="usuario.Telefone"  mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
+            <input type="tel" name="Telefone" id="Telefone" class="form-control" ng-model="usuario.Telefone"  minlength="10" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
         
@@ -123,7 +123,7 @@
             <label class="" for="Celular">
                 <span translate>Celular</span>
             </label>
-            <input type="tel" name="Celular" id="Celular" class="form-control" ng-model="usuario.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
+            <input type="tel" name="Celular" id="Celular" class="form-control" ng-model="usuario.Celular"  minlength="10" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -166,7 +166,7 @@
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoUf.$invalid}" ng-if="currentLocaleDisplayName !== 'pt-BR'">
             <label class="" for="EnderecoUf">
                 <span translate>Estado</span> *</label>
-            <input type="text" name="EnderecoUf" id="EnderecoUf" class="form-control" ng-model="usuario.Endereco.Uf" required>
+            <input type="text" name="EnderecoUf" id="EnderecoUf" class="form-control" ng-model="usuario.Endereco.UfInternacional" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -342,7 +342,7 @@
             <label for="ContatoEmergenciaTelefone" >
                 <span translate>Telefone do contato de emergência</span> *
             </label>
-            <input type="tel" name="ContatoEmergenciaTelefone" id="ContatoEmergenciaTelefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone" maxlength="20"  mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
+            <input type="tel" name="ContatoEmergenciaTelefone" id="ContatoEmergenciaTelefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone"  minlength="10" maxlength="20"  mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -422,44 +422,44 @@
                     <span translate>Tamanho de camiseta</span> *</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="PP"  required>PP
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="PP"  required>{{'Tamanhos.PP' | translate}}
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="P"  required>P
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="P"  required>{{'Tamanhos.P' | translate}}
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="M"  required>M
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="M"  required>{{'Tamanhos.M' | translate}}
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="G"  required>G
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="G"  required>{{'Tamanhos.G' | translate}}
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="GG"  required>GG
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="GG"  required>{{'Tamanhos.GG' | translate}}
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="XG"  required>XG
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="XG"  required>{{'Tamanhos.XG' | translate}}
                     </label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="XGG"  required>XGG
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="XGG"  required>{{'Tamanhos.XGG' | translate}}
                     </label>
                 </div>
-                <div class="radio">
+                <!-- <div class="radio">
                     <label>
                         <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="2XG"  required>2XGG
                     </label>
-                </div>
+                </div> -->
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -481,13 +481,13 @@
                 <label class="" for="acompanhanteTelefone">
                     <span translate>Telefone</span> *</label>
                 <input type="tel" id="acompanhanteTelefone" name="acompanhanteTelefone" class="form-control" ng-model="acompanhante.Telefone"
-                    maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
+                    maxlength="20" minlength="10" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteCelular.$invalid}">
                 <label class="" for="acompanhanteCelular">
                     <span translate></span>Celular</label>
-                <input type="tel" id="acompanhanteCelular" name="acompanhanteCelular" class="form-control" ng-model="acompanhante.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
+                <input type="tel" id="acompanhanteCelular" name="acompanhanteCelular" class="form-control" minlength="10" ng-model="acompanhante.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -530,7 +530,7 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoUf.$invalid}" ng-if="currentLocaleDisplayName !== 'pt-BR'">
                 <label class="" for="acompanhanteEnderecoUf">
                     <span translate>Estado</span> *</label>
-                <input type="text" name="acompanhanteEnderecoUf" id="acompanhanteEnderecoUf" class="form-control" ng-model="acompanhante.Endereco.Uf" required>
+                <input type="text" name="acompanhanteEnderecoUf" id="acompanhanteEnderecoUf" class="form-control" ng-model="acompanhante.Endereco.UfInternacional" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -707,7 +707,7 @@
                 <label for="acompanhanteContatoEmergenciaTelefone">
                     <span translate>Telefone do contato de emergência</span> *
                 </label>
-                <input type="tel" name="acompanhanteContatoEmergenciaTelefone" id="acompanhanteContatoEmergenciaTelefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
+                <input type="tel" name="acompanhanteContatoEmergenciaTelefone" id="acompanhanteContatoEmergenciaTelefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone"  minlength="10" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
                 
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -717,7 +717,7 @@
                     <span translate>Celular do contato de emergência</span> *
                 </label>
                 <input type="tel" name="acompanhanteContatoEmergenciaCelular" id="acompanhanteContatoEmergenciaCelular" class="form-control"
-                    ng-model="acompanhante.ContatoEmergencia.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
+                    ng-model="acompanhante.ContatoEmergencia.Celular" minlength="10" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
                     
                 <span class="material-icons form-control-feedback">clear</span>
             </div>

@@ -15,8 +15,7 @@
 
     "Sim": "Si",
     "Não": "No",
-    "Olá": "Hello",
-    "com": "with",
+    "Olá": "Hola",
     "Enviar": "Send",
     "Enviado!": "Sent!",
     "Cancelar": "Cancel",
@@ -28,7 +27,6 @@
     "Dados": "Data",
     "Nascimento": "Birthdate",
     "Localização": "Location",
-    "Número": "Number",
     "Adicionar": "Add",
     "Pular": "Skip",
     "Recortar foto": "Crop picture",
@@ -41,22 +39,11 @@
     "Início": "Start",
     "Fim": "End",
     "Local": "Location",
-    "Complemento": "Line 2",
     "Bloco, apartamento": "",
     "Evento": "Event",
-    "Telefone": "Phone Number",
     "Habilidades": "Skills",
     "Gênero": "Gender",
     "Indiferente": "All",
-    "Feminino": "Female",
-    "Masculino": "Male",
-    "País": "Country",
-    "Estado": "State/Province",
-    "Cidade": "City",
-    "Rua": "Line 1",
-    "Bairro": "Neighborhood",
-    "CEP": "Postal code",
-    "Celular": "Cellphone",
     "Formação": "Education",
     "Idiomas": "Languages",
     "Idade": "Age",
@@ -125,9 +112,19 @@
     "Erro 404": "Error 404",
 
     "Não se pode apagar o evento após seu início": "Can not delete event after start",
+
+
+    
+
+    "Insira seu e-mail": "Introduce tu e-mail",
+    "Insira um e-mail válido": "Introduzca un e-mail válido",
+
+    "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até": "Para que podamos garantizar el mejor servicio, le pedimos que rellene los datos abajo hasta",
+    "seja bem-vindo(a)!": "bienvenido(a)!",
     
     "Titular": "Titular",
     "Acompanhante": "ACOMPAÑANTE",
+
     "Nome completo (conforme documento de embarque)": "Nombre (según en el pasaporte)",
     "Cargo": "Cargo",
     "Empresa": "Empresa",
@@ -138,6 +135,7 @@
     "Cidade de embarque": "Ciudad de embarque",
     "Telefone": "Teléfono residencial",
     "Celular": "Teléfono móvil",
+
     "Rua": "Dirección",
     "Número": "Número",
     "Complemento": "Complemento",
@@ -146,38 +144,84 @@
     "Estado": "Provincia/ Estado",
     "País": "País",
     "Tipo de endereço": "Tipo de dirección",
-    "Comercial": "xxxXXXxxx",
-    "Residencial": "xxxXXXxxx",
+    "Comercial": "Empresa",
+    "Residencial": "Residencia",
+
     "CPF": "xxxXXXxxx",
     "Data de expedição do RG": "xxxXXXxxx",
     "Órgão emissor": "xxxXXXxxx",
+
     "Passaporte": "Pasaporte",
     "Emissão do passaporte": "Fecha de emisión del pasaporte",
     "Validade do passaporte": "Fecha de vencimiento del pasaporte",
+
     "Data de nascimento": "Fecha de nacimiento",
     "Nacionalidade": "Nacionalidad",
     "Cidade de nascimento": "Ciudad de nacimiento",
+
     "Estado civil": "Situación civil",
     "Fumante": "Fumador",
     "Portador de necessidades especiais": "Portador de necesidades especiales",
+
     "Alergias": "Alergias",
     "Restrições alimentares": "Restricciones alimentarias",
     "Informações médicas (em caso de gravidez indique aqui)": "Información Médica (en caso de embarazo indique aquí)",
+
     "Nome do contato de emergência": "Nombre del contacto de emergencia",
     "Telefone do contato de emergência": "Teléfono fijo del contacto de emergencia",
     "Celular do contato de emergência": "Teléfono móvil del contacto de emergencia",
+
     "Irá levar acompanhante": "Se llevará acompañante",
     "Grau de parentesco com o titular": "Grado de parentesco con el titular",
-    "Comercial": "Comercial",
-    "Residencial": "Residencial",
-    
+
+    "Tamanho de camiseta": "Talle de camisa",
+    "Email": "E-mail",
+    "Tamanhos": {
+        "PP": "XS",
+        "P": "S",
+        "M": "M",
+        "G": "L",
+        "GG": "XL",
+        "XG": "XXL",
+        "XGG": "XXXL",
+        "2XG": "XXXXL"
+    },
+
     "Em caso de dúvidas entre em contato com": "En caso de duda contacte <u><a href='mailto:{{footeremail}}'>con nosotros</a></u> por teléfono {{footertelefone}}",
-    "Insira seu e-mail": "Introduce tu e-mail",
-    "Coloque um e-mail válido": "E-mail inválido",
+    
     "Hospedagem: quarto com 1 cama ou 2 camas": "Habitación: con 1 cama o 2 camas",
     "1 cama": "1 cama",
     "2 camas": "2 camas",
-    "Nome do Arquivo": "Nombre de archivo"
+
+    "Nome do Arquivo": "Nombre de archivo",
+    "Digite sua senha": "Insira su contraseña",
+
+    "Menu":{
+        "Inscricao": "Registro",
+        "Sair": "Salir"
+    },
 
 
+    "Upload":{
+        "Title":"Upload de archivos",
+        "Descricao":"Después de seleccionar sus archivos usted debe definir a qué participante es el archivo referente (titular o acompañante) para completar la inscripción.",
+        "SelecioneArraste": "Seleccione / arrastre sus archivos aquí",
+        "Ou": "o",
+        "Selecione": "Seleccione sus archivos",
+        "Tamanho": "Tamaño",
+        "Definicao": "Este archivo se asigna a quién?",
+        "Progresso": "Progreso",
+        "Atencao": "Atención",
+        "ErroDefinirParticipante": "Debe definir individualmente la referencia de cada archivo",
+        "Finalizar": "Finalizar registro",
+        "Send": "Enviar",
+        "CancelarTodos": "Cancelar todos",
+        "RemoverTodos": "Quitar todos"
+    },
+
+    "Sucesso": {
+        "Obrigado": "Gracias!",
+        "DadosSucesso": "¡Sus datos fueron recibidos con éxito!"
+    }
+    
 }

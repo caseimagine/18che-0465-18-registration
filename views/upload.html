@@ -1,7 +1,6 @@
-<h3 translate>Upload de arquivos</h3>
+<h3 translate>Upload.Title</h3>
 
-<p translate>Após selecionar seus arquivos você deve definir de qual usuário é o arquivo referente selecionado (titular ou acompanhante)
-    para seguirmos com o envio dos dados para inscrição</p>
+<p translate>Upload.Descricao</p>
 
 <br>
 
@@ -11,7 +10,7 @@
     <!-- Example: nv-file-drop="" uploader="{Object}" options="{Object}" filters="{String}" -->
     <div nv-file-drop="" uploader="uploader" options="{ url: '/foo' }">
         <div nv-file-over="" uploader="uploader" over-class="nv-file-over" class="well my-drop-zone text-center">
-            {{'Selecione/arraste seus arquivos aqui' | translate}}
+            {{'Upload.SelecioneArraste' | translate}}
         </div>
     </div>
 </div>
@@ -19,10 +18,10 @@
 <!-- Example: nv-file-select="" uploader="{Object}" options="{Object}" filters="{String}" -->
 
 <p class="text-center">
-    ou
+    {{'Upload.Ou' | translate}}
     <br>
     <span class="btn btn-default btn-file text-center">
-        {{'Selecione seus arquivos' | translate}}
+        {{'Upload.Selecione' | translate}}
         <input type="file" nv-file-select="" uploader="uploader" multiple />
     </span>
 </p>
@@ -46,13 +45,13 @@
                     {{ item.file.name }}
                 </strong>
                 <br>
-                <small class="text-muted">{{'Tamanho' | translate}}: {{ item.file.size/1024/1024|number:2 }} MB</small>
+                <small class="text-muted">{{'Upload.Tamanho' | translate}}: {{ item.file.size/1024/1024|number:2 }} MB</small>
             </p>
             <!-- <td>
                 <select ng-model="item.tipoArquivo" ng-options="tipo.id as tipo.name for tipo in tiposArquivo"></select>
             </td> -->
             <div class="form-group" ng-if="usuario.Wave > 0" ng-class="{'has-error': uploadForm.atribuicao.$invalid}">
-                <label for="atribuicao">{{'Este arquivo é atribuido à quem?' | translate}} *</label>
+                <label for="atribuicao">{{'Upload.Definicao' | translate}} *</label>
                 <select class="form-control" name="atribuicao" id="atribuicao" ng-model="item.insertAcompId" ng-options="referencia.insertAcompId as referencia.name for referencia in referenciaArquivo"
                     ng-change="alterandoReferenciaArquivo(item)" required restrict="reject"></select>
 
@@ -67,24 +66,24 @@
 
 <div ng-show="uploader.queue.length > 0">
     <div>
-        <p>Progresso geral</p>
+        <p translate>Upload.Progresso</p>
         <div class="progress" style="">
             <div class="progress-bar" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }"></div>
         </div>
     </div>
     <div class="alert alert-danger" ng-if="!checaSeTemSasToken(uploader.queue) && (usuario.Wave > 0) " ng-hide="">
-        <strong>{{'Atenção' | translate}}!</strong> {{'Você deve definir individualmente a referência de cada arquivo' | translate}}.
+        <strong>{{'Upload.Atencao' | translate}}!</strong> {{'Upload.ErroDefinirParticipante' | translate}}.
     </div>
     <button type="button" class="btn btn-primary btn-s" ng-click="submitForm()" ng-if="allUploadsComplete">
-        <span class="glyphicon glyphicon-ok"></span> Finalizar cadastro
+        <span class="glyphicon glyphicon-ok"></span> {{'Upload.Finalizar' | translate}}
     </button>
     <button type="button" class="btn btn-success btn-s" ng-click="uploader.uploadAll()" ng-if="!allUploadsComplete" ng-disabled="!checaSeTemSasToken(uploader.queue) ">
-        <span class="glyphicon glyphicon-upload"></span> Upload
+        <span class="glyphicon glyphicon-upload"></span> {{'Upload.Send' | translate}}
     </button>
     <button type="button" class="btn btn-warning btn-s" ng-click="uploader.cancelAll()" ng-if="!allUploadsComplete" ng-disabled="!uploader.isUploading">
-        <span class="glyphicon glyphicon-ban-circle"></span> Cancelar todos
+        <span class="glyphicon glyphicon-ban-circle"></span> {{'Upload.CancelarTodos' | translate}}
     </button>
     <button type="button" class="btn btn-danger btn-s" ng-click="uploader.clearQueue()" ng-if="!allUploadsComplete" ng-disabled="!uploader.queue.length">
-        <span class="glyphicon glyphicon-trash"></span> Remove todos
+        <span class="glyphicon glyphicon-trash"></span> {{'Upload.RemoverTodos' | translate}}
     </button>
 </div>

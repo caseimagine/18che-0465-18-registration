@@ -12,12 +12,10 @@
     "controller.login.A senha deve ter no mínimo 6 caracteres": "A senha deve ter no mínimo 6 caracteres",
     "controller.login.Este usuário já está cadastrado em nosso aplicativo": "Este usuário já está cadastrado em nosso aplicativo",
     "controller.login.Usuário não aprovado/inexistente": "Usuário não aprovado/inexistente",
-    "controller.login.Senha inválida. Tente novamente": "Senha inválida. Tente novamente",
 
     "Sim": "Sim",
     "Não": "Não",
     "Olá": "Olá",
-    "com": "com",
     "Enviar": "Enviar",
     "Enviado!": "Enviado!",
     "Cancelar": "Cancelar",
@@ -29,7 +27,6 @@
     "Dados": "Dados",
     "Nascimento": "Nascimento",
     "Localização": "Localização",
-    "Número": "Número",
     "Adicionar": "Adicionar",
     "Pular": "Pular",
     "Recortar foto": "Recortar foto",
@@ -125,25 +122,19 @@
     "Política de Privacidade": "Política de Privacidade",
     "Erro 404": "Erro 404",
 
+
+    "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até": "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até",
+    "seja bem-vindo(a)!": "seja bem-vindo(a)!",
+
     "Titular": "Titular",
     "Acompanhante": "Acompanhante",
     "Nome completo (conforme documento de embarque)": "Nome completo (conforme documento de embarque)",
     "Cargo": "Cargo",
     "Empresa": "Empresa",
     "Sexo": "Sexo",
-    "Masculino": "Masculino",
-    "Feminino": "Feminino",
     "Email secundário": "Email secundário",
     "Cidade de embarque": "Cidade de embarque",
-    "Telefone": "Telefone",
-    "Celular": "Celular",
-    "Rua": "Rua",
     "Número": "Número",
-    "Complemento": "Complemento",
-    "Bairro": "Bairro",
-    "Cidade": "Cidade",
-    "Estado": "Estado",
-    "País": "País",
     "Tipo de endereço": "Tipo de endereço",
     "Comercial": "Comercial",
     "Residencial": "Residencial",
@@ -167,14 +158,52 @@
     "Celular do contato de emergência": "Celular do contato de emergência",
     "Irá levar acompanhante": "Irá levar acompanhante",
     "Grau de parentesco com o titular": "Grau de parentesco com o titular",
-    "Comercial": "Comercial",
-    "Residencial": "Residencial",
     "Em caso de dúvidas entre em contato com": "Em caso de dúvidas entre em contato <u><a href='mailto:{{footeremail}}'>conosco</a></u> pelo telefone {{footertelefone}}",
     "Insira seu e-mail": "Insira seu e-mail",
-    "Coloque um e-mail válido": "Coloque um e-mail válido",
+    "Insira um e-mail válido": "Insira um e-mail válido",
+
     "Hospedagem: quarto com 1 cama ou 2 camas": "Hospedagem: quarto com 1 cama ou 2 camas",
     "1 cama": "1 cama",
     "2 camas": "2 camas",
-    "Nome do Arquivo": "Nome do Arquivo"
 
+    "Nome do Arquivo": "Nome do Arquivo",
+    "Tamanho de camiseta": "Tamanho de camiseta",
+    "Email": "E-mail",
+    "Tamanhos": {
+        "PP": "PP",
+        "P": "P",
+        "M": "M",
+        "G": "G",
+        "GG": "GG",
+        "XG": "XG",
+        "XGG": "XGG",
+        "2XG": "XXG"
+    },
+
+    "Menu":{
+        "Inscricao": "Inscrição",
+        "Sair": "Sair"
+    },
+
+    "Upload":{
+        "Title":"Upload de arquivos",
+        "Descricao":"Após selecionar seus arquivos você deve definir a qual participante é o arquivo referente (titular ou acompanhante) para concluir a inscrição.",
+        "SelecioneArraste": "Selecione/arraste seus arquivos aqui",
+        "Ou": "ou",
+        "Selecione": "Selecione seus arquivos",
+        "Tamanho": "Tamanho",
+        "Definicao": "Este arquivo é atribuido à quem?",
+        "Progresso": "Progresso geral",
+        "Atencao": "Atenção",
+        "ErroDefinirParticipante": "Você deve definir individualmente a referência de cada arquivo",
+        "Finalizar": "Finalizar cadastro",
+        "Send": "Enviar",
+        "CancelarTodos": "Cancelar todos",
+        "RemoverTodos": "Remover todos"
+    },
+
+    "Sucesso": {
+        "Obrigado": "OBRIGADO!",
+        "DadosSucesso": "Seus dados foram recebidos com sucesso!"
+    }
 }
