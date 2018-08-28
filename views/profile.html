@@ -6,7 +6,7 @@
     <p translate>{{usuario.Nome}} seja bem-vindo(a)!</p>
     <p translate>Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até {{grupo.deadlineInscricao}}.</p>
 <!--  -->
-    <fieldset ng-disabled="(usuario.Status === '1') || (usuario.Status === 1) || (usuario.Status === '-4') || (usuario.Status === -4) || (usuario.Status === '-2') || (usuario.Status === -2)" >
+    <fieldset ng-disabled="disableFields()" >
 
         <h3>
             <span translate>Titular</span>
@@ -15,26 +15,26 @@
         <div class="form-group" ng-class="{'has-error': userForm.nome.$invalid}">
             <label class="" for="nome">
                 <span translate>Nome completo (conforme documento de embarque)</span> *</label>
-            <input type="text" name="nome" id="nome" class="form-control" ng-model="usuario.Nome" data-ng-maxlength="100" required ng-disabled="disableFields()">
+            <input type="text" name="nome" id="nome" class="form-control" ng-model="usuario.Nome" data-ng-maxlength="100" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.sobrenome.$invalid}" ng-if="currentLocaleDisplayName === 'es-ES'">
             <label class="" for="sobrenome">Appelido (según en el pasaporte) *</label>
-            <input type="text" name="sobrenome" id="sobrenome" class="form-control" ng-model="usuario.Sobrenome" data-ng-maxlength="100" required ng-disabled="disableFields()">
+            <input type="text" name="sobrenome" id="sobrenome" class="form-control" ng-model="usuario.Sobrenome" data-ng-maxlength="100" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.Cargo.$invalid}">
             <label class="" for="Cargo">
                 <span translate>Cargo</span> *</label>
-            <input type="text" name="Cargo" id="Cargo" class="form-control" ng-model="usuario.Cargo" required ng-disabled="disableFields()">
+            <input type="text" name="Cargo" id="Cargo" class="form-control" ng-model="usuario.Cargo" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
         <div class="form-group " ng-class="{'has-error': userForm.Empresa.$invalid}">
             <label class="" for="Empresa">
                 <span translate>Empresa</span> *</label>
-            <input type="text" name="Empresa" id="Empresa" class="form-control" ng-model="usuario.Empresa" required ng-disabled="disableFields()">
+            <input type="text" name="Empresa" id="Empresa" class="form-control" ng-model="usuario.Empresa" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -43,11 +43,57 @@
                 <span translate>Sexo</span> *</label>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Sexo" ng-model="usuario.Sexo" value="M"  required ng-disabled="disableFields()">{{'Masculino' | translate}}</label>
+                    <input type="radio" name="Sexo" ng-model="usuario.Sexo" value="M"  required>{{'Masculino' | translate}}</label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Sexo" ng-model="usuario.Sexo" value="F"  required ng-disabled="disableFields()">{{'Feminino' | translate}}</label>
+                    <input type="radio" name="Sexo" ng-model="usuario.Sexo" value="F"  required>{{'Feminino' | translate}}</label>
+            </div>
+            <span class="material-icons form-control-feedback">clear</span>
+        </div>
+
+        <div class="form-group" ng-class="{'has-error': userForm.Sexo.$invalid}">
+            <label for="">
+                <span translate>Tamanho de camiseta</span> *</label>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="PP"  required>PP
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="P"  required>P
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="M"  required>M
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="G"  required>G
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="GG"  required>GG
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="XG"  required>XG
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="XGG"  required>XGG
+                </label>
+            </div>
+            <div class="radio">
+                <label>
+                    <input type="radio" name="Manequim" ng-model="usuario.Manequim" value="2XG"  required>2XGG
+                </label>
             </div>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
@@ -55,35 +101,35 @@
         <div class="form-group " ng-class="{'has-error': userForm.EmailCopia.$invalid}">
             <label class="" for="EmailCopia">
                 <span translate>Email secundário</span> *</label>
-            <input type="email" name="EmailCopia" id="EmailCopia" class="form-control" ng-model="usuario.EmailCopia" required ng-disabled="disableFields()">
+            <input type="email" name="EmailCopia" id="EmailCopia" class="form-control" ng-model="usuario.EmailCopia" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.CidadeEmbarque.$invalid}">
             <label class="" for="CidadeEmbarque">
                 <span translate>Cidade de embarque</span> *</label>
-            <input type="text" name="CidadeEmbarque" id="CidadeEmbarque" class="form-control" ng-model="usuario.CidadeEmbarque" required ng-disabled="disableFields()">
+            <input type="text" name="CidadeEmbarque" id="CidadeEmbarque" class="form-control" ng-model="usuario.CidadeEmbarque" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.Telefone.$invalid}">
             <label class="" for="Telefone">
                 <span translate>Telefone</span> *</label>
-            <input type="tel" name="Telefone" id="Telefone" class="form-control" ng-model="usuario.Telefone" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required ng-disabled="disableFields()">
+            <input type="tel" name="Telefone" id="Telefone" class="form-control" ng-model="usuario.Telefone" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
         <div class="form-group " ng-class="{'has-error': userForm.Celular.$invalid}">
             <label class="" for="Celular">
                 <span translate>Celular</span>
             </label>
-            <input type="tel" name="Celular" id="Celular" class="form-control" ng-model="usuario.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required ng-disabled="disableFields()">
+            <input type="tel" name="Celular" id="Celular" class="form-control" ng-model="usuario.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.Endereco.Logradouro.$invalid}">
             <label class="" for="Endereco.Logradouro">
                 <span translate>Rua</span> *</label>
-            <input type="text" name="Endereco.Logradouro" id="Endereco.Logradouro" class="form-control" ng-model="usuario.Endereco.Logradouro" required ng-disabled="disableFields()">
+            <input type="text" name="Endereco.Logradouro" id="Endereco.Logradouro" class="form-control" ng-model="usuario.Endereco.Logradouro" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -91,42 +137,42 @@
         <div class="form-group " ng-class="{'has-error': userForm.Endereco.Numero.$invalid}">
             <label class="" for="Endereco.Numero">
                 <span translate>Número</span> *</label>
-            <input type="text" name="Endereco.Numero" id="Endereco.Numero" class="form-control" ng-model="usuario.Endereco.Numero" required ng-disabled="disableFields()">
+            <input type="text" name="Endereco.Numero" id="Endereco.Numero" class="form-control" ng-model="usuario.Endereco.Numero" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoComplemento.$invalid}">
             <label class="" for="EnderecoComplemento">
                 <span translate>Complemento</span></label>
-            <input type="text" name="EnderecoComplemento" id="EnderecoComplemento" class="form-control" ng-model="usuario.Endereco.Complemento" ng-disabled="disableFields()">
+            <input type="text" name="EnderecoComplemento" id="EnderecoComplemento" class="form-control" ng-model="usuario.Endereco.Complemento">
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoBairro.$invalid}">
             <label class="" for="EnderecoBairro">
                 <span translate>Bairro</span> *</label>
-            <input type="text" name="EnderecoBairro" id="EnderecoBairro" class="form-control" ng-model="usuario.Endereco.Bairro" required ng-disabled="disableFields()">
+            <input type="text" name="EnderecoBairro" id="EnderecoBairro" class="form-control" ng-model="usuario.Endereco.Bairro" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoCidade.$invalid}">
             <label class="" for="EnderecoCidade">
                 <span translate>Cidade</span> *</label>
-            <input type="text" name="EnderecoCidade" id="EnderecoCidade" class="form-control" ng-model="usuario.Endereco.Cidade" required ng-disabled="disableFields()">
+            <input type="text" name="EnderecoCidade" id="EnderecoCidade" class="form-control" ng-model="usuario.Endereco.Cidade" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoUf.$invalid}" ng-if="currentLocaleDisplayName !== 'pt-BR'">
             <label class="" for="EnderecoUf">
                 <span translate>Estado</span> *</label>
-            <input type="text" name="EnderecoUf" id="EnderecoUf" class="form-control" ng-model="usuario.Endereco.Uf" required ng-disabled="disableFields()">
+            <input type="text" name="EnderecoUf" id="EnderecoUf" class="form-control" ng-model="usuario.Endereco.Uf" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.EnderecoUf.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
             <label for="EnderecoUf">
                 <span translate>Estado</span> *</label>
-            <select class="form-control" name="EnderecoUf" id="EnderecoUf" ng-model="usuario.Endereco.Uf" ng-options="estado.valor as estado.texto for estado in estados" required ng-disabled="disableFields()">
+            <select class="form-control" name="EnderecoUf" id="EnderecoUf" ng-model="usuario.Endereco.Uf" ng-options="estado.valor as estado.texto for estado in estados" required>
             </select>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
@@ -134,7 +180,7 @@
         <div class="form-group " ng-class="{'has-error': userForm.EnderecoPais.$invalid}">
             <label class="" for="EnderecoPais">
                 <span translate>País</span> *</label>
-            <input type="text" name="EnderecoPais" id="EnderecoPais" class="form-control" ng-model="usuario.Endereco.Pais" required ng-disabled="disableFields()">
+            <input type="text" name="EnderecoPais" id="EnderecoPais" class="form-control" ng-model="usuario.Endereco.Pais" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -143,11 +189,11 @@
                 <span translate>Tipo de endereço</span> *</label>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Enderecotipo" ng-model="usuario.Endereco.tipo" ng-value="0" required ng-disabled="disableFields()"> {{'Comercial' | translate}}</label>
+                    <input type="radio" name="Enderecotipo" ng-model="usuario.Endereco.tipo" ng-value="0" required> {{'Comercial' | translate}}</label>
             </div>
             <div class="radio">
                 <label>
-                    <input type="radio" name="Enderecotipo" ng-model="usuario.Endereco.tipo" ng-value="1" required ng-disabled="disableFields()"> {{'Residencial' | translate}}</label>
+                    <input type="radio" name="Enderecotipo" ng-model="usuario.Endereco.tipo" ng-value="1" required> {{'Residencial' | translate}}</label>
 
             </div>
             <span class="material-icons form-control-feedback">clear</span>
@@ -156,42 +202,42 @@
         <div class="form-group " ng-class="{'has-error': userForm.Cpf.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
             <label class="" for="Cpf">
                 <span translate>CPF</span> *</label>
-            <input type="text" name="Cpf" id="Cpf" class="form-control" ng-model="usuario.Cpf" maxlength="11" required ng-disabled="disableFields()">
+            <input type="text" name="Cpf" id="Cpf" class="form-control" ng-model="usuario.Cpf" maxlength="11" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.RgNumero.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
             <label class="" for="RgNumero">
                 <span translate>RG</span> *</label>
-            <input type="text" name="RgNumero" id="RgNumero" class="form-control" ng-model="usuario.Rg.Numero" max="15" required ng-disabled="disableFields()">
+            <input type="text" name="RgNumero" id="RgNumero" class="form-control" ng-model="usuario.Rg.Numero" max="15" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <!-- <div class="form-group" ng-class="{'has-error': userForm.RgEmissao.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
             <label for="RgEmissao">
                 <span translate>Data de expedição do RG</span> *</label>
-            <input type="text" name="RgEmissao" id="RgEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Rg.Emissao" mask='39/19/9999' required ng-disabled="disableFields()">
+            <input type="text" name="RgEmissao" id="RgEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Rg.Emissao" mask='39/19/9999' required>
             <span class="material-icons form-control-feedback">clear</span>
         </div> -->
 
         <div class="form-group " ng-class="{'has-error': userForm.RgEmissor.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
             <label class="" for="RgEmissor">
                 <span translate>Órgão emissor</span> *</label>
-            <input type="text" name="RgEmissor" id="RgEmissor" class="form-control" ng-model="usuario.Rg.Emissor" max="20" required ng-disabled="disableFields()">
+            <input type="text" name="RgEmissor" id="RgEmissor" class="form-control" ng-model="usuario.Rg.Emissor" max="20" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.PassaporteNumero.$invalid}">
             <label class="" for="PassaporteNumero">
                 <span translate>Passaporte</span> *</label>
-            <input type="text" name="PassaporteNumero" id="PassaporteNumero" class="form-control" ng-model="usuario.Passaporte.Numero" required ng-disabled="disableFields()">
+            <input type="text" name="PassaporteNumero" id="PassaporteNumero" class="form-control" ng-model="usuario.Passaporte.Numero" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.PassaporteEmissao.$invalid}">
             <label for="PassaporteEmissao">
                 <span translate>Emissão do passaporte</span> *</label>
-            <input type="text" name="PassaporteEmissao" id="PassaporteEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Passaporte.Emissao" mask='39/19/9999' required ng-disabled="disableFields()">
+            <input type="text" name="PassaporteEmissao" id="PassaporteEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Passaporte.Emissao" mask='39/19/9999' required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -199,21 +245,21 @@
             <label for="PassaporteValidade">
                 <span translate>Validade do passaporte</span> *</label>
             <input type="text" name="PassaporteValidade" id="PassaporteValidade" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Passaporte.Validade"
-                mask='39/19/9999' required ng-disabled="disableFields()">
+                mask='39/19/9999' required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.Nascimento.$invalid}">
             <label for="Nascimento">
                 <span translate>Data de nascimento</span> *</label>
-            <input type="text" name="Nascimento" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Nascimento" mask='39/19/9999' required ng-disabled="disableFields()">
+            <input type="text" name="Nascimento" placeholder="dd/mm/aaaa" class="form-control" ng-model="usuario.Nascimento" mask='39/19/9999' required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.NacionalidadePais.$invalid}">
             <label for="NacionalidadePais">
                 <span translate>Nacionalidade</span> *</label>
-            <input type="text" name="NacionalidadePais" id="NacionalidadePais" class="form-control" ng-model="usuario.Nacionalidade.Pais" maxlength="50" required ng-disabled="disableFields()">
+            <input type="text" name="NacionalidadePais" id="NacionalidadePais" class="form-control" ng-model="usuario.Nacionalidade.Pais" maxlength="50" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -221,14 +267,14 @@
             <label class="" for="NacionalidadeCidade">
                 <span translate>Cidade de nascimento</span> *</label>
             <input type="text" name="NacionalidadeCidade" id="NacionalidadeCidade" class="form-control" ng-model="usuario.Nacionalidade.Cidade"
-                required ng-disabled="disableFields()">
+                required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group" ng-class="{'has-error': userForm.AcompNacionalidadeEstadoCivil.$invalid}">
             <label for="AcompNacionalidadeEstadoCivil">
                 <span translate>Estado civil</span> *</label>
-            <input type="text" name="AcompNacionalidadeEstadoCivil" id="AcompNacionalidadeEstadoCivil" class="form-control" ng-model="usuario.Nacionalidade.EstadoCivil" maxlength="50" required ng-disabled="disableFields()">
+            <input type="text" name="AcompNacionalidadeEstadoCivil" id="AcompNacionalidadeEstadoCivil" class="form-control" ng-model="usuario.Nacionalidade.EstadoCivil" maxlength="50" required>
             
             <span class="material-icons form-control-feedback">clear</span>
         </div>
@@ -236,7 +282,7 @@
         <div class="form-group" ng-class="{'has-error': userForm.Fumante.$invalid}">
             <label for="Fumante">
                 <span translate>Fumante</span>? *</label>
-            <select class="form-control" id="Fumante" ng-model="usuario.Fumante" required ng-disabled="disableFields()">
+            <select class="form-control" id="Fumante" ng-model="usuario.Fumante" required>
                 <option ng-value="false">
                     {{'Não' | translate}}
                 </option>
@@ -250,7 +296,7 @@
         <div class="form-group" ng-class="{'has-error': userForm.Pne.$invalid}">
             <label for="Pne">
                 <span translate>Portador de necessidades especiais</span>? *</label>
-            <select class="form-control" id="Pne" ng-model="usuario.Pne" required ng-disabled="disableFields()">
+            <select class="form-control" id="Pne" ng-model="usuario.Pne" required>
                 <option ng-value="false">
                     {{'Não' | translate}}
                 </option>
@@ -264,14 +310,14 @@
         <div class="form-group " ng-class="{'has-error': userForm.Alergias.$invalid}">
             <label class="" for="Alergias">
                 <span translate>Alergias</span> *</label>
-            <input type="text" name="Alergias" id="Alergias" class="form-control" ng-model="usuario.Alergias" required ng-disabled="disableFields()">
+            <input type="text" name="Alergias" id="Alergias" class="form-control" ng-model="usuario.Alergias" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
         <div class="form-group " ng-class="{'has-error': userForm.RestricoesAlimentares.$invalid}">
             <label class="" for="RestricoesAlimentares">
                 <span translate>Restrições alimentares</span> *</label>
-            <input type="text" name="RestricoesAlimentares" id="RestricoesAlimentares" class="form-control" ng-model="usuario.RestricoesAlimentares" required ng-disabled="disableFields()">
+            <input type="text" name="RestricoesAlimentares" id="RestricoesAlimentares" class="form-control" ng-model="usuario.RestricoesAlimentares" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -279,7 +325,7 @@
             <label class="" for="InformacoesMedicas">
                 <span translate>Informações médicas (em caso de gravidez indique aqui)</span>
             </label>
-            <input type="text" name="InformacoesMedicas" id="InformacoesMedicas" class="form-control" ng-model="usuario.InformacoesMedicas" ng-disabled="disableFields()">
+            <input type="text" name="InformacoesMedicas" id="InformacoesMedicas" class="form-control" ng-model="usuario.InformacoesMedicas">
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -287,7 +333,7 @@
             <label for="ContatoEmergenciaNome">
                 <span translate>Nome do contato de emergência</span> *
             </label>
-            <input type="text" name="ContatoEmergenciaNome" id="ContatoEmergenciaNome" class="form-control" ng-model="usuario.ContatoEmergencia.Nome" maxlength="50" required ng-disabled="disableFields()">
+            <input type="text" name="ContatoEmergenciaNome" id="ContatoEmergenciaNome" class="form-control" ng-model="usuario.ContatoEmergencia.Nome" maxlength="50" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -295,7 +341,7 @@
             <label for="ContatoEmergenciaTelefone" >
                 <span translate>Telefone do contato de emergência</span> *
             </label>
-            <input type="tel" name="ContatoEmergenciaTelefone" id="ContatoEmergenciaTelefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone" maxlength="20"  mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required ng-disabled="disableFields()">
+            <input type="tel" name="ContatoEmergenciaTelefone" id="ContatoEmergenciaTelefone" class="form-control" ng-model="usuario.ContatoEmergencia.Telefone" maxlength="20"  mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -303,7 +349,7 @@
             <label for="ContatoEmergencia">
                 <span translate>Celular do contato de emergência</span> *
             </label>
-            <input type="tel" name="ContatoEmergencia" id="ContatoEmergencia" class="form-control" ng-model="usuario.ContatoEmergencia.Celular" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required ng-disabled="disableFields()">
+            <input type="tel" name="ContatoEmergencia" id="ContatoEmergencia" class="form-control" ng-model="usuario.ContatoEmergencia.Celular" maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
             <span class="material-icons form-control-feedback">clear</span>
         </div>
 
@@ -326,11 +372,11 @@
                     <span translate>Hospedagem: quarto com 1 cama ou 2 camas</span>? *</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="camas" ng-model="usuario.PerfilViajante" value="1 cama" required ng-disabled="disableFields()">{{'1 cama' | translate}}</label>
+                        <input type="radio" name="camas" ng-model="usuario.PerfilViajante" value="1 cama" required>{{'1 cama' | translate}}</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="camas" ng-model="usuario.PerfilViajante" value="2 camas" required ng-disabled="disableFields()">{{'2 camas' | translate}}</label>
+                        <input type="radio" name="camas" ng-model="usuario.PerfilViajante" value="2 camas" required>{{'2 camas' | translate}}</label>
                 </div>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -338,7 +384,7 @@
             <div class="form-group" ng-class="{'has-error': userForm.acompanhanteGrauParentesco.$invalid}">
                 <label class="" for="acompanhanteGrauParentesco">
                     <span translate>Grau de parentesco com o titular</span> *</label>
-                <input type="text" name="acompanhanteGrauParentesco" id="acompanhanteGrauParentesco" class="form-control" ng-model="acompanhante.GrauParentesco" data-ng-maxlength="100" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteGrauParentesco" id="acompanhanteGrauParentesco" class="form-control" ng-model="acompanhante.GrauParentesco" data-ng-maxlength="100" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -346,13 +392,13 @@
             <div class="form-group" ng-class="{'has-error': userForm.acompanhantenome.$invalid}">
                 <label class="" for="acompanhantenome">
                     <span translate>Nome completo (conforme documento de embarque)</span> *</label>
-                <input type="text" id="acompanhantenome" name="acompanhantenome" class="form-control" ng-model="acompanhante.Nome" data-ng-maxlength="50" required ng-disabled="disableFields()">
+                <input type="text" id="acompanhantenome" name="acompanhantenome" class="form-control" ng-model="acompanhante.Nome" data-ng-maxlength="50" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group" ng-if="currentLocaleDisplayName === 'es-ES'" ng-class="{'has-error': userForm.acompanhanteSobrenome.$invalid}" >
                 <label class="" for="acompanhanteSobrenome">Appelido (según en el pasaporte) *</label>
-                <input type="text" name="acompanhanteSobrenome" id="acompanhanteSobrenome" class="form-control" ng-model="acompanhante.Sobrenome" data-ng-maxlength="100"  restrict="reject" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteSobrenome" id="acompanhanteSobrenome" class="form-control" ng-model="acompanhante.Sobrenome" data-ng-maxlength="100"  restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -361,11 +407,57 @@
                     <span translate>Sexo</span> *</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteSexo" ng-model="acompanhante.Sexo" value="M" required ng-disabled="disableFields()">{{'Masculino' | translate}}</label>
+                        <input type="radio" name="acompanhanteSexo" ng-model="acompanhante.Sexo" value="M" required>{{'Masculino' | translate}}</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteSexo" ng-model="acompanhante.Sexo" value="F" required ng-disabled="disableFields()">{{'Feminino' | translate}}</label>
+                        <input type="radio" name="acompanhanteSexo" ng-model="acompanhante.Sexo" value="F" required>{{'Feminino' | translate}}</label>
+                </div>
+                <span class="material-icons form-control-feedback">clear</span>
+            </div>
+
+            <div class="form-group" ng-class="{'has-error': userForm.Sexo.$invalid}">
+                <label for="">
+                    <span translate>Tamanho de camiseta</span> *</label>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="PP"  required>PP
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="P"  required>P
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="M"  required>M
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="G"  required>G
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="GG"  required>GG
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="XG"  required>XG
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="XGG"  required>XGG
+                    </label>
+                </div>
+                <div class="radio">
+                    <label>
+                        <input type="radio" name="acompanhanteManequim" ng-model="acompanhante.Manequim" value="2XG"  required>2XGG
+                    </label>
                 </div>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -373,14 +465,14 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEmail.$invalid}">
                 <label class="" for="acompanhanteEmail">
                     <span translate>Email</span> *</label>
-                <input type="email" id="acompanhanteEmail" name="acompanhanteEmail" class="form-control" ng-model="acompanhante.Email" required ng-disabled="disableFields()">
+                <input type="email" id="acompanhanteEmail" name="acompanhanteEmail" class="form-control" ng-model="acompanhante.Email" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteCidadeEmbarque.$invalid}">
                 <label class="" for="acompanhanteCidadeEmbarque">
                     <span translate>Cidade de embarque</span> *</label>
-                <input type="text" id="acompanhanteCidadeEmbarque" name="acompanhanteCidadeEmbarque" class="form-control" ng-model="acompanhante.CidadeEmbarque" required ng-disabled="disableFields()">
+                <input type="text" id="acompanhanteCidadeEmbarque" name="acompanhanteCidadeEmbarque" class="form-control" ng-model="acompanhante.CidadeEmbarque" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -388,20 +480,20 @@
                 <label class="" for="acompanhanteTelefone">
                     <span translate>Telefone</span> *</label>
                 <input type="tel" id="acompanhanteTelefone" name="acompanhanteTelefone" class="form-control" ng-model="acompanhante.Telefone"
-                    maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required ng-disabled="disableFields()">
+                    maxlength="20" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteCelular.$invalid}">
                 <label class="" for="acompanhanteCelular">
                     <span translate></span>Celular</label>
-                <input type="tel" id="acompanhanteCelular" name="acompanhanteCelular" class="form-control" ng-model="acompanhante.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required ng-disabled="disableFields()">
+                <input type="tel" id="acompanhanteCelular" name="acompanhanteCelular" class="form-control" ng-model="acompanhante.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999" restrict="reject" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoLogradouro.$invalid}">
                 <label class="" for="acompanhanteEnderecoLogradouro">
                     <span translate>Rua</span> *</label>
-                <input type="text" name="acompanhanteEnderecoLogradouro" id="acompanhanteEnderecoLogradouro" class="form-control" ng-model="acompanhante.Endereco.Logradouro" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteEnderecoLogradouro" id="acompanhanteEnderecoLogradouro" class="form-control" ng-model="acompanhante.Endereco.Logradouro" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -409,7 +501,7 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoNumero.$invalid}">
                 <label class="" for="acompanhanteEnderecoNumero">
                     <span translate>Número</span> *</label>
-                <input type="text" name="acompanhanteEnderecoNumero" id="acompanhanteEnderecoNumero" class="form-control" ng-model="acompanhante.Endereco.Numero" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteEnderecoNumero" id="acompanhanteEnderecoNumero" class="form-control" ng-model="acompanhante.Endereco.Numero" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -423,28 +515,28 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoBairro.$invalid}">
                 <label class="" for="acompanhanteEnderecoBairro">
                     <span translate>Bairro</span> *</label>
-                <input type="text" name="acompanhanteEnderecoBairro" id="acompanhanteEnderecoBairro" class="form-control" ng-model="acompanhante.Endereco.Bairro" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteEnderecoBairro" id="acompanhanteEnderecoBairro" class="form-control" ng-model="acompanhante.Endereco.Bairro" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoCidade.$invalid}">
                 <label class="" for="acompanhanteEnderecoCidade">
                     <span translate>Cidade</span> *</label>
-                <input type="text" name="acompanhanteEnderecoCidade" id="acompanhanteEnderecoCidade" class="form-control" ng-model="acompanhante.Endereco.Cidade" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteEnderecoCidade" id="acompanhanteEnderecoCidade" class="form-control" ng-model="acompanhante.Endereco.Cidade" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoUf.$invalid}" ng-if="currentLocaleDisplayName !== 'pt-BR'">
                 <label class="" for="acompanhanteEnderecoUf">
                     <span translate>Estado</span> *</label>
-                <input type="text" name="acompanhanteEnderecoUf" id="acompanhanteEnderecoUf" class="form-control" ng-model="acompanhante.Endereco.Uf" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteEnderecoUf" id="acompanhanteEnderecoUf" class="form-control" ng-model="acompanhante.Endereco.Uf" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group" ng-class="{'has-error': userForm.acompanhanteEnderecoUf.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
                 <label for="acompanhanteEnderecoUf">
                     <span translate>Estado</span> *</label>
-                <select class="form-control" name="acompanhanteEnderecoUf" id="acompanhanteEnderecoUf" ng-model="acompanhante.Endereco.Uf" ng-options="estado.valor as estado.texto for estado in estados" required ng-disabled="disableFields()">
+                <select class="form-control" name="acompanhanteEnderecoUf" id="acompanhanteEnderecoUf" ng-model="acompanhante.Endereco.Uf" ng-options="estado.valor as estado.texto for estado in estados" required>
                 </select>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -452,7 +544,7 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteEnderecoPais.$invalid}">
                 <label class="" for="acompanhanteEnderecoPais">
                     <span translate>País</span> *</label>
-                <input type="text" name="acompanhanteEnderecoPais" id="acompanhanteEnderecoPais" class="form-control" ng-model="acompanhante.Endereco.Pais" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteEnderecoPais" id="acompanhanteEnderecoPais" class="form-control" ng-model="acompanhante.Endereco.Pais" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -461,11 +553,11 @@
                     <span translate>Tipo de endereço</span> *</label>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="0" required ng-disabled="disableFields()"> {{'Comercial' | translate}}</label>
+                        <input type="radio" name="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="0" required> {{'Comercial' | translate}}</label>
                 </div>
                 <div class="radio">
                     <label>
-                        <input type="radio" name="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="1" required ng-disabled="disableFields()"> {{'Residencial' | translate}}</label>
+                        <input type="radio" name="acompanhanteEnderecotipo" ng-model="acompanhante.Endereco.tipo" ng-value="1" required> {{'Residencial' | translate}}</label>
 
                 </div>
                 <span class="material-icons form-control-feedback">clear</span>
@@ -474,56 +566,56 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteCpf.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
                 <label class="" for="acompanhanteCpf">
                     <span translate>CPF</span> *</label>
-                <input type="text" id="acompanhanteCpf" id="acompanhanteCpf" class="form-control" ng-model="acompanhante.Cpf" maxlength="11" required ng-disabled="disableFields()">
+                <input type="text" id="acompanhanteCpf" id="acompanhanteCpf" class="form-control" ng-model="acompanhante.Cpf" maxlength="11" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteRgNumero.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
                 <label class="" for="acompanhanteRgNumero">
                     <span translate>RG</span> *</label>
-                <input type="text" name="acompanhanteRgNumero" id="acompanhanteRgNumero" class="form-control" ng-model="acompanhante.Rg.Numero" max="15" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteRgNumero" id="acompanhanteRgNumero" class="form-control" ng-model="acompanhante.Rg.Numero" max="15" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <!-- <div class="form-group" ng-class="{'has-error': userForm.acompanhanteRgEmissao.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
                 <label for="acompanhanteRgEmissao">
                     <span translate>Data de expedição do RG</span> *</label>
-                <input type="text" name="acompanhanteRgEmissao" id="acompanhanteRgEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Rg.Emissao" mask='39/19/9999' required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteRgEmissao" id="acompanhanteRgEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Rg.Emissao" mask='39/19/9999' required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div> -->
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteRgEmissor.$invalid}" ng-if="currentLocaleDisplayName === 'pt-BR'">
                 <label class="" for="acompanhanteRgEmissor">
                     <span translate>Órgão emissor</span> *</label>
-                <input type="text" name="acompanhanteRgEmissor" id="acompanhanteRgEmissor" class="form-control" ng-model="acompanhante.Rg.Emissor" max="20" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteRgEmissor" id="acompanhanteRgEmissor" class="form-control" ng-model="acompanhante.Rg.Emissor" max="20" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhantePassaporteNumero.$invalid}">
                 <label class="" for="acompanhantePassaporteNumero">
                     <span translate>Passaporte</span> *</label>
-                <input type="text" name="acompanhantePassaporteNumero" id="acompanhantePassaporteNumero" class="form-control" ng-model="acompanhante.Passaporte.Numero" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhantePassaporteNumero" id="acompanhantePassaporteNumero" class="form-control" ng-model="acompanhante.Passaporte.Numero" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group" ng-class="{'has-error': userForm.acompanhantePassaporteEmissao.$invalid}">
                 <label for="acompanhantePassaporteEmissao">
                     <span translate>Emissão do passaporte</span> *</label>
-                <input type="text" name="acompanhantePassaporteEmissao" id="acompanhantePassaporteEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Passaporte.Emissao" mask='39/19/9999' required ng-disabled="disableFields()">
+                <input type="text" name="acompanhantePassaporteEmissao" id="acompanhantePassaporteEmissao" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Passaporte.Emissao" mask='39/19/9999' required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group" ng-class="{'has-error': userForm.acompanhantePassaporteValidade.$invalid}">
                 <label for="acompanhantePassaporteValidade">
                     <span translate>Validade do passaporte</span> *</label>
-                <input type="text" name="acompanhantePassaporteValidade" id="acompanhantePassaporteValidade" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Passaporte.Validade" mask='39/19/9999' required ng-disabled="disableFields()">
+                <input type="text" name="acompanhantePassaporteValidade" id="acompanhantePassaporteValidade" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Passaporte.Validade" mask='39/19/9999' required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group" ng-class="{'has-error': userForm.acompanhanteNascimento.$invalid}">
                 <label for="acompanhanteNascimento">
                     <span translate>Data de nascimento</span> *</label>
-                <input type="text" name="acompanhanteNascimento" id="acompanhanteNascimento" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Nascimento" mask='39/19/9999' required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteNascimento" id="acompanhanteNascimento" placeholder="dd/mm/aaaa" class="form-control" ng-model="acompanhante.Nascimento" mask='39/19/9999' required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -531,14 +623,14 @@
                 <label for="acompanhanteNacionalidadePais">
                     <span translate>Nacionalidade</span> *
                 </label>
-                <input type="text" name="acompanhanteNacionalidadePais" id="acompanhanteNacionalidadePais" class="form-control" ng-model="acompanhante.Nacionalidade.Pais" maxlength="50" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteNacionalidadePais" id="acompanhanteNacionalidadePais" class="form-control" ng-model="acompanhante.Nacionalidade.Pais" maxlength="50" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteNacionalidadeCidade.$invalid}">
                 <label class="" for="acompanhanteNacionalidadeCidade">
                     <span translate>Cidade de nascimento</span> *</label>
-                <input type="text" name="acompanhanteNacionalidadeCidade" id="acompanhanteNacionalidadeCidade" class="form-control" ng-model="acompanhante.Nacionalidade.Cidade" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteNacionalidadeCidade" id="acompanhanteNacionalidadeCidade" class="form-control" ng-model="acompanhante.Nacionalidade.Cidade" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -546,14 +638,14 @@
                 <label for="acompanhanteNacionalidadeEstadoCivil">
                     <span translate>Estado civil</span> *
                 </label>
-                <input type="text" name="acompanhanteNacionalidadeEstadoCivil" id="acompanhanteNacionalidadeEstadoCivil" class="form-control" ng-model="acompanhante.Nacionalidade.EstadoCivil" maxlength="50" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteNacionalidadeEstadoCivil" id="acompanhanteNacionalidadeEstadoCivil" class="form-control" ng-model="acompanhante.Nacionalidade.EstadoCivil" maxlength="50" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group" ng-class="{'has-error': userForm.acompanhanteFumante.$invalid}">
                 <label for="acompanhanteFumante">
                     <span translate>Fumante</span> *</label>
-                <select class="form-control" name="acompanhanteFumante" id="acompanhanteFumante" ng-model="acompanhante.Fumante" required ng-disabled="disableFields()">
+                <select class="form-control" name="acompanhanteFumante" id="acompanhanteFumante" ng-model="acompanhante.Fumante" required>
                     <option ng-value="false">
                         {{'Não' | translate}}
                     </option>
@@ -567,7 +659,7 @@
             <div class="form-group" ng-class="{'has-error': userForm.acompanhantePne.$invalid}">
                 <label for="acompanhantePne">
                     <span translate>Portador de necessidades especiais</span>? *</label>
-                <select class="form-control" id="acompanhantePne" ng-model="acompanhante.Pne" required ng-disabled="disableFields()">
+                <select class="form-control" id="acompanhantePne" ng-model="acompanhante.Pne" required>
                     <option ng-value="false">
                         {{'Não' | translate}}
                     </option>
@@ -581,14 +673,14 @@
             <div class="form-group " ng-class="{'has-error': userForm.acompanhanteAlergias.$invalid}">
                 <label class="" for="acompanhanteAlergias">
                     <span translate>Alergias</span> *</label>
-                <input type="text" name="acompanhanteAlergias" id="acompanhanteAlergias" class="form-control" ng-model="acompanhante.Alergias" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteAlergias" id="acompanhanteAlergias" class="form-control" ng-model="acompanhante.Alergias" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
             <div class="form-group " ng-class="{'has-error': userForm.RestricoesAlimentares.$invalid}">
                 <label class="" for="acompanhanteRestricoesAlimentares">
                     <span translate>Restrições alimentares</span> *</label>
-                <input type="text" name="acompanhanteRestricoesAlimentares" id="acompanhanteRestricoesAlimentares" class="form-control" ng-model="acompanhante.RestricoesAlimentares" required ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteRestricoesAlimentares" id="acompanhanteRestricoesAlimentares" class="form-control" ng-model="acompanhante.RestricoesAlimentares" required>
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -596,7 +688,7 @@
                 <label class="" for="acompanhanteInformacoesMedicas">
                     <span translate>Informações médicas (em caso de gravidez indique aqui)</span>
                 </label>
-                <input type="text" name="acompanhanteInformacoesMedicas" id="acompanhanteInformacoesMedicas" class="form-control" ng-model="acompanhante.InformacoesMedicas"  ng-disabled="disableFields()">
+                <input type="text" name="acompanhanteInformacoesMedicas" id="acompanhanteInformacoesMedicas" class="form-control" ng-model="acompanhante.InformacoesMedicas" >
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
 
@@ -605,7 +697,7 @@
                     <span translate>Nome do contato de emergência</span> *
                 </label>
                 <input type="text" name="acompanhanteContatoEmergenciaNome" id="acompanhanteContatoEmergenciaNome" class="form-control"
-                    ng-model="acompanhante.ContatoEmergencia.Nome" maxlength="50" required ng-disabled="disableFields()">
+                    ng-model="acompanhante.ContatoEmergencia.Nome" maxlength="50" required>
                     
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -614,7 +706,7 @@
                 <label for="acompanhanteContatoEmergenciaTelefone">
                     <span translate>Telefone do contato de emergência</span> *
                 </label>
-                <input type="tel" name="acompanhanteContatoEmergenciaTelefone" id="acompanhanteContatoEmergenciaTelefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required ng-disabled="disableFields()">
+                <input type="tel" name="acompanhanteContatoEmergenciaTelefone" id="acompanhanteContatoEmergenciaTelefone" class="form-control" ng-model="acompanhante.ContatoEmergencia.Telefone" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
                 
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
@@ -624,7 +716,7 @@
                     <span translate>Celular do contato de emergência</span> *
                 </label>
                 <input type="tel" name="acompanhanteContatoEmergenciaCelular" id="acompanhanteContatoEmergenciaCelular" class="form-control"
-                    ng-model="acompanhante.ContatoEmergencia.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required ng-disabled="disableFields()">
+                    ng-model="acompanhante.ContatoEmergencia.Celular" mask="+9?9?9?9?9?9?9?9?9?9?99999999"  required>
                     
                 <span class="material-icons form-control-feedback">clear</span>
             </div>
