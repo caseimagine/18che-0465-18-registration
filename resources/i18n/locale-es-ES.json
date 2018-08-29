@@ -203,9 +203,9 @@
 
 
     "Upload":{
-        "Title":"Upload de archivos",
-        "Descricao":"Después de seleccionar sus archivos usted debe definir a qué participante es el archivo referente (titular o acompañante) para completar la inscripción.",
-        "SelecioneArraste": "Seleccione / arrastre sus archivos aquí",
+        "Title":"Upload de la página de la foto del pasaporte",
+        "Descricao":"Haga subir su pasaporte digitalizado. Usted debe definir a qué participante el archivo es referente (titular o acompañante) para completar la inscripción. Una vez finalizada la inscripción, ya no podrá cambiar sus datos.",
+        "SelecioneArraste": "Arrastre sus archivos aquí",
         "Ou": "o",
         "Selecione": "Seleccione sus archivos",
         "Tamanho": "Tamaño",
@@ -222,6 +222,8 @@
     "Sucesso": {
         "Obrigado": "Gracias!",
         "DadosSucesso": "¡Sus datos fueron recibidos con éxito!"
-    }
+    },
+
+    "LogoCampanha": "logo-campanha-esp.svg"
     
 }
