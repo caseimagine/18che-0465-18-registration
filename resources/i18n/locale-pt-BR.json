@@ -199,7 +199,8 @@
         "Finalizar": "Finalizar cadastro",
         "Send": "Enviar",
         "CancelarTodos": "Cancelar todos",
-        "RemoverTodos": "Remover todos"
+        "RemoverTodos": "Remover todos",
+        "ErroHaArquivosNaoAtribuidos": "Você deve definir quais são os arquivos tanto para <strong>titular</strong> como <strong>acompanhante</strong>"
     },
 
     "Sucesso": {

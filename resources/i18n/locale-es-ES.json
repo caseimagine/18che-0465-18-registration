@@ -216,7 +216,8 @@
         "Finalizar": "Finalizar registro",
         "Send": "Enviar",
         "CancelarTodos": "Cancelar todos",
-        "RemoverTodos": "Quitar todos"
+        "RemoverTodos": "Quitar todos",
+        "ErroHaArquivosNaoAtribuidos": "Usted debe definir cuáles son los archivos tanto para <strong>titular</strong> como <strong>acompañante</ strong>"
     },
 
     "Sucesso": {
