@@ -113,14 +113,18 @@
 
     "Não se pode apagar o evento após seu início": "Can not delete event after start",
 
-
-    
-
     "Insira seu e-mail": "Introduce tu e-mail",
     "Insira um e-mail válido": "Introduzca un e-mail válido",
 
-    "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até": "Para que podamos garantizar el mejor servicio, le pedimos que rellene los datos abajo hasta",
-    "seja bem-vindo(a)!": "bienvenido(a)!",
+    "Profile":{
+        "WelcomeBeforeName": "¡Bienvenido(a) ",
+        "WelcomeAfterName": "!",
+        "DeadlineMessage": "Para que podamos garantizar el mejor servicio, le pedimos cumplimentar los datos abajo hasta el ",
+        "Registration":{
+            "Companion.Taking": "¿Llevará acompañante?",
+            "Companion.Relatedness": "Grado de parentesco con el titular"
+        }
+    },
     
     "Titular": "Titular",
     "Acompanhante": "ACOMPAÑANTE",
@@ -171,9 +175,6 @@
     "Telefone do contato de emergência": "Teléfono fijo del contacto de emergencia",
     "Celular do contato de emergência": "Teléfono móvil del contacto de emergencia",
 
-    "Irá levar acompanhante": "Se llevará acompañante",
-    "Grau de parentesco com o titular": "Grado de parentesco con el titular",
-
     "Tamanho de camiseta": "Talle de camisa",
     "Email": "E-mail",
     "Tamanhos": {
@@ -187,7 +188,7 @@
         "2XG": "XXXXL"
     },
 
-    "Em caso de dúvidas entre em contato com": "En caso de duda contacte <u><a href='mailto:{{footeremail}}'>con nosotros</a></u> por teléfono {{footertelefone}}",
+    "Em caso de dúvidas entre em contato com": "En caso de duda, póngase en contacto <u><a href='mailto:{{footeremail}}'>con nosotros</a></u> al teléfono {{footertelefone}}",
     
     "Hospedagem: quarto com 1 cama ou 2 camas": "Habitación: con 1 cama o 2 camas",
     "1 cama": "1 cama",

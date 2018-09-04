@@ -3,8 +3,8 @@
 <form name="userForm" ng-submit="submitForm(userForm.$valid, usuario, acompanhante)">
     <!-- novalidate prevents HTML5 validation since we will be validating ourselves -->
 
-    <p>{{usuario.Nome}} <span translate>seja bem-vindo(a)!</span></p>
-    <p><span translate>Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até</span> {{grupo.deadlineInscricao}}.</p>
+    <p>{{'Profile.WelcomeBeforeName' | translate}}{{usuario.Nome}}{{'Profile.WelcomeAfterName' | translate}}</span></p>
+    <p>{{'Profile.DeadlineMessage' | translate}} {{grupo.deadlineInscricao}}.</p>
 <!--  -->
     <fieldset ng-disabled="disableFields()" >
 
@@ -360,7 +360,7 @@
             <div class="togglebutton">
 
                 <label>
-                    <span translate>Irá levar acompanhante</span>?
+                    <span>{{'Profile.Registration.Companion.Taking' | translate }}</span>?
                     <input type="checkbox" checked="" ng-model="usuario.Wave" ng-false-value="0" ng-true-value="1">
                 </label>
             </div>

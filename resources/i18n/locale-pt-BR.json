@@ -123,8 +123,17 @@
     "Erro 404": "Erro 404",
 
 
-    "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até": "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até",
-    "seja bem-vindo(a)!": "seja bem-vindo(a)!",
+    "Profile":{
+        "WelcomeBeforeName": "Seja bem-vindo(a),",
+        "WelcomeAfterName": "!",
+        "DeadlineMessage": "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até",
+        "Registration":{
+            "Companion.Taking": "Irá levar acompanhante",
+            "Companion.Relatedness": "Grau de parentesco com o titular"
+        }
+    },
+
+    "Para que possamos garantir o melhor serviço, pedimos que preencha os dados abaixo até": "",
 
     "Titular": "Titular",
     "Acompanhante": "Acompanhante",
@@ -156,8 +165,6 @@
     "Nome do contato de emergência": "Nome do contato de emergência",
     "Telefone do contato de emergência": "Telefone do contato de emergência",
     "Celular do contato de emergência": "Celular do contato de emergência",
-    "Irá levar acompanhante": "Irá levar acompanhante",
-    "Grau de parentesco com o titular": "Grau de parentesco com o titular",
     "Em caso de dúvidas entre em contato com": "Em caso de dúvidas entre em contato <u><a href='mailto:{{footeremail}}'>conosco</a></u> pelo telefone {{footertelefone}}",
     "Insira seu e-mail": "Insira seu e-mail",
     "Insira um e-mail válido": "Insira um e-mail válido",
